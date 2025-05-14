@@ -17,6 +17,8 @@
 13. [Impure Function](#impure-function)
 14. [Temporal Dead Zone](#temporal-dead-zone)
 15. [Hoisting](#hoisting)
+16. [Unary Function](#unary-function)
+17. [Memoization](#memoization)
 
 ## Polyfills
 
@@ -324,3 +326,167 @@ var sayHello = function () {
   console.log('Hello!');
 };
 ```
+
+## Unary Function
+
+A unary function is a function that accepts exactly one argument.
+
+Example:
+
+```js
+const square = x => x * x;
+
+console.log(square(5)); // Output: 25
+```
+
+Unary functions are often used in functional programming and can simplify operations by focusing on single-argument transformations.
+
+## Memoization
+
+Memoization is an optimization technique used to speed up function execution by caching the results of expensive function calls and returning the cached result when the same inputs occur again.
+
+### Example:
+
+```js
+function memoize(fn) {
+  const cache = new Map();
+  return function (...args) {
+    const key = JSON.stringify(args);
+    if (cache.has(key)) {
+      return cache.get(key);
+    }
+    const result = fn(...args);
+    cache.set(key, result);
+    return result;
+  };
+}
+
+// Example usage:
+function slowFunction(num) {
+  console.log('Computing...');
+  return num * num;
+}
+
+const memoizedFunction = memoize(slowFunction);
+
+console.log(memoizedFunction(5)); // Output: Computing... 25
+console.log(memoizedFunction(5)); // Output: 25 (cached result)
+console.log(memoizedFunction(6)); // Output: Computing... 36
+```
+
+Memoization is particularly useful in scenarios where the same computations are repeated multiple times, such as recursive algorithms or data-intensive operations.
+
+## Closures
+
+Closures are functions that retain access to their outer scope, even after the outer function has executed. This allows the inner function to "remember" variables from its enclosing scope.
+
+### Example:
+
+```js
+function outerFunction(outerVariable) {
+  return function innerFunction(innerVariable) {
+    console.log(`Outer Variable: ${outerVariable}`);
+    console.log(`Inner Variable: ${innerVariable}`);
+  };
+}
+
+const newFunction = outerFunction('outside');
+newFunction('inside');
+
+// Output:
+// Outer Variable: outside
+// Inner Variable: inside
+```
+
+Closures are commonly used in scenarios such as data hiding, function factories, and maintaining state in asynchronous operations.
+
+## localStorage, sessionStorage, Cookie, IndexDB, web storage
+
+### localStorage, sessionStorage, Cookie, IndexedDB, and Web Storage
+
+These are different ways to store data on the client side in a web application.
+
+#### 1. **localStorage**
+
+- Stores data with no expiration time.
+- Data persists even after the browser is closed and reopened.
+- Accessible only within the same origin.
+- Storage limit: ~5MB.
+
+Example:
+
+```js
+localStorage.setItem('key', 'value');
+console.log(localStorage.getItem('key')); // Output: value
+localStorage.removeItem('key');
+localStorage.clear();
+```
+
+#### 2. **sessionStorage**
+
+- Stores data for the duration of the page session.
+- Data is cleared when the page session ends (e.g., when the tab is closed).
+- Accessible only within the same origin.
+- Storage limit: ~5MB.
+
+Example:
+
+```js
+sessionStorage.setItem('key', 'value');
+console.log(sessionStorage.getItem('key')); // Output: value
+sessionStorage.removeItem('key');
+sessionStorage.clear();
+```
+
+#### 3. **Cookies**
+
+- Stores small amounts of data (up to 4KB).
+- Data can have an expiration time.
+- Automatically sent to the server with every HTTP request.
+- Can be accessed by both client and server.
+
+Example:
+
+```js
+document.cookie = 'username=John; expires=Fri, 31 Dec 2023 23:59:59 GMT; path=/';
+console.log(document.cookie);
+```
+
+#### 4. **IndexedDB**
+
+- A low-level API for storing large amounts of structured data.
+- Supports transactions and advanced querying.
+- Data persists even after the browser is closed.
+
+Example:
+
+```js
+const request = indexedDB.open('myDatabase', 1);
+
+request.onupgradeneeded = event => {
+  const db = event.target.result;
+  db.createObjectStore('store', { keyPath: 'id' });
+};
+
+request.onsuccess = event => {
+  const db = event.target.result;
+  const transaction = db.transaction('store', 'readwrite');
+  const store = transaction.objectStore('store');
+  store.add({ id: 1, name: 'John' });
+};
+```
+
+#### 5. **Web Storage (localStorage and sessionStorage)**
+
+- Provides a simple key-value storage mechanism.
+- Does not send data to the server with HTTP requests.
+- Suitable for storing less sensitive data.
+
+| Feature       | localStorage | sessionStorage | Cookies         | IndexedDB     |
+| ------------- | ------------ | -------------- | --------------- | ------------- |
+| Storage Limit | ~5MB         | ~5MB           | ~4KB            | Large amounts |
+| Expiration    | None         | On tab close   | Configurable    | None          |
+| Accessibility | Client only  | Client only    | Client & Server | Client only   |
+| Complexity    | Simple       | Simple         | Moderate        | Complex       |
+
+Each storage mechanism has its own use case, and the choice depends on the requirements of the application.
