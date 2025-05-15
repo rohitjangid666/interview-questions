@@ -2,23 +2,166 @@
 
 ## Table of Contents
 
-1. [Polyfills](#polyfills)
-2. [First-Class Function](#first-class-function)
-3. [First-Order Function](#first-order-function)
-4. [Higher-Order Function](#higher-order-function)
-5. [Function Currying](#function-currying)
-6. [Map vs ForEach](#map-vs-foreach)
-7. [Call, Apply & Bind](#call-apply--bind)
-8. [Argument Keyword](#argument-keyword)
-9. [Debouncing](#debouncing)
-10. [Async & Defer in Script Tag](#async--defer-in-script-tag)
-11. [Event Delegation](#event-delegation)
-12. [Pure Function](#pure-function)
-13. [Impure Function](#impure-function)
-14. [Temporal Dead Zone](#temporal-dead-zone)
-15. [Hoisting](#hoisting)
-16. [Unary Function](#unary-function)
-17. [Memoization](#memoization)
+1. [What is JavaScript](#what-is-javascript)
+2. [Difference between synchronous and asynchronous](#difference-between-synchronous-and-asynchronous)
+3. [Interpreter vs Compiler](#interpreter-vs-compiler)
+4. [Prototypes](#prototypes)
+5. [Event Loop](#event-loop)
+6. [Execution Context](#execution-context)
+7. [Polyfills](#polyfills)
+8. [First-Class Function](#first-class-function)
+9. [First-Order Function](#first-order-function)
+10. [Higher-Order Function](#higher-order-function)
+11. [Function Currying](#function-currying)
+12. [Map vs ForEach](#map-vs-foreach)
+13. [Call, Apply & Bind](#call-apply--bind)
+14. [Argument Keyword](#argument-keyword)
+15. [Debouncing](#debouncing)
+16. [Async & Defer in Script Tag](#async--defer-in-script-tag)
+17. [Event Delegation](#event-delegation)
+18. [Pure Function](#pure-function)
+19. [Impure Function](#impure-function)
+20. [Temporal Dead Zone](#temporal-dead-zone)
+21. [Hoisting](#hoisting)
+22. [Unary Function](#unary-function)
+23. [Memoization](#memoization)
+
+## What is JavaScript
+
+- JavaScript is loosely types/weekly typed language
+- Everything in JavaScript happens inside an "[Execution Context](#execution-context)"
+- JavaScript is `single-threaded` by design, this means it can only do one thing at a time on the main thread
+- By default, JavaScript is [`synchronous`](#difference-between-synchronous-and-asynchronous): it runs line by line. \
+  Synchronous Example:
+
+  ```js
+  console.log('1');
+  console.log('2');
+  console.log('3');
+  // Output: 1, 2, 3
+  ```
+
+- But JavaScript can handle [`asynchronous`](#difference-between-synchronous-and-asynchronous) code using
+
+  - [Callbacks](#callbacks)
+  - [Promises](#promises)
+  - [async/await](#async/await)
+
+  Asynchronous Example:
+
+  ```js
+  console.log('1');
+  setTimeout(() => console.log('2'), 1000);
+  console.log('3');
+  // Output: 1, 3, 2
+  ```
+
+- JavaScript is [`interpreted`](#interpreter-vs-compiler) but modern engines like `V8` (in Chrome and Node.js) compile it `Just-In-Time (JIT)` for better performance.
+
+  So it is:
+
+  - Interpreted language(executed line by line)
+  - With JIT compilation for speed optimization
+
+- JavaScript is `Object-Oriented programming`, but it is `not a class-based language`. It `uses `[`prototypes`](#prototypes)` for inheritance`.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+## Difference between synchronous and asynchronous
+
+- **Synchronous**: Code is executed line by line, and each line must complete before the next one starts. This can lead to blocking behavior, where the program waits for a long-running operation to finish before moving on.
+- **Asynchronous**: Code can be executed out of order, allowing the program to continue running while waiting for a long-running operation to complete. This is achieved through callbacks, promises, and async/await.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+## Interpreter vs Compiler
+
+- **Interpreter**: Translates high-level code into machine code line by line at runtime. It executes the code directly, which can be slower but allows for immediate execution and debugging.
+- **Compiler**: Translates the entire high-level code into machine code before execution. It generates an executable file, which can be run multiple times without recompilation, leading to faster execution.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+## Prototypes
+
+JavaScript uses prototypes for inheritance. Every object in JavaScript has a prototype, which is another object from which it can inherit properties and methods.
+
+Example:
+
+```js
+function Person(name) {
+  this.name = name;
+}
+
+Person.prototype.sayHello = function () {
+  console.log('Hello, my name is ' + this.name);
+};
+const john = new Person('John');
+john.sayHello(); // Output: Hello, my name is John
+```
+
+**[⬆ Back to Top](#table-of-contents)**
+
+## Event Loop
+
+- It is concept that explains how JavaScript handles asynchronous code execution - like [`setTimeout`](#setTimeout), [`fetch`](#fetch), or [`Promises`](#promises), etc.
+- Core concept of the Event loop
+  1. **Call Stack**:\
+     Where JavaScript keeps track of what functions are being called and executed.
+  2. **Web APIs (Browser)**:\
+     Where things like [`setTimeout`](#setTimeout), [`DOM events`](#dom-events), and [`fetch`](#fetch) are handled outside of the main thread.
+  3. **Callback Queue (Task Queue)**:\
+     Where [`setTimeout`](#setTimeout), [`DOM events`](#dom-events), etc., wait to be pushed to the call stack.
+  4. **Micro-task Queue**:\
+     Where [`Promises.then`](#promises) and [`async/await`](#async/await) callbacks wait(executed before the callback queue).
+  5. **Event Loop**:\
+     A loop that checks `if the call stack is empty` and then pushes the next task or micro-task into the call stack to run
+- How Event Loop Works:
+
+  ```js
+  console.log('1');
+
+  setTimeout(() => {
+    console.log('2');
+  }, 0);
+
+  Promise.resolve().then(() => {
+    console.log('3');
+  });
+
+  console.log('4');
+
+  // Output:
+  1;
+  4;
+  3;
+  2;
+  ```
+
+  | Code                          | Goes where               | When it runs          |
+  | ----------------------------- | ------------------------ | --------------------- |
+  | `console.log("1")`            | Call stack               | Immediately           |
+  | `setTimeout(..., 0)`          | Web API → Callback queue | After 0ms             |
+  | `Promise.resolve().then(...)` | Microtask queue          | After main code done  |
+  | `console.log("4")`            | Call stack               | Immediately           |
+  | Microtask queue runs          |                          | Before callback queue |
+  | Callback queue runs           |                          | After microtasks      |
+
+  ```sql
+  [ Call Stack ]          [ Web APIs ]         [ Queues ]
+
+  console.log("1")  --->  setTimeout         ---> Callback Queue
+  console.log("4")  --->  Promise.then       ---> Microtask Queue
+
+              EVENT LOOP CYCLE:
+  -> Is Call Stack empty?
+  -> Yes ➜ Check Microtask Queue
+  -> Run all microtasks
+  -> Then check Callback Queue
+  -> Run one task from callback queue
+  -> Repeat...
+  ```
+
+## Execution Context
 
 ## Polyfills
 
@@ -46,6 +189,8 @@ if (!Array.prototype.map) {
 }
 ```
 
+**[⬆ Back to Top](#table-of-contents)**
+
 ## First-Class Function
 
 First-class functions are treated as first-class objects, which means they can be:
@@ -64,6 +209,8 @@ const handler = () => console.log('This is a click handler function');
 document.addEventListener('click', handler);
 ```
 
+**[⬆ Back to Top](#table-of-contents)**
+
 ## First-Order Function
 
 A function that doesn’t accept another function as an argument and doesn’t return a function as its return value.
@@ -77,6 +224,8 @@ function add(a, b) {
 
 console.log(add(2, 3)); // Output: 5
 ```
+
+**[⬆ Back to Top](#table-of-contents)**
 
 ## Higher-Order Function
 
@@ -106,6 +255,8 @@ higherOrderFunction(sayHello);
 // After executing the callback
 ```
 
+**[⬆ Back to Top](#table-of-contents)**
+
 ## Function Currying
 
 Function currying is a higher-order function where a function returns another function with specific parameters.
@@ -134,6 +285,8 @@ console.log(curriedSum(1, 2)(3)); // Output: 6
 console.log(curriedSum(1, 2, 3)); // Output: 6
 ```
 
+**[⬆ Back to Top](#table-of-contents)**
+
 ## Map vs ForEach
 
 - **Map**:
@@ -145,6 +298,8 @@ console.log(curriedSum(1, 2, 3)); // Output: 6
   - Does not support method chaining.
 
 Both `map` and `forEach` do not mutate (change) the original array.
+
+**[⬆ Back to Top](#table-of-contents)**
 
 ## Call, Apply & Bind
 
@@ -187,6 +342,8 @@ let newFunc = userDetails.bind({ firstName: 'Rohit', lastName: 'Jangid' }, 'Jodh
 newFunc();
 ```
 
+**[⬆ Back to Top](#table-of-contents)**
+
 ## Argument Keyword
 
 The `arguments` keyword is an array-like object accessible in functions. It contains values passed to that function.
@@ -200,9 +357,13 @@ function HelloWorld() {
 HelloWorld('Rohit', 'Max', 'Nell');
 ```
 
+**[⬆ Back to Top](#table-of-contents)**
+
 ## Debouncing
 
 Debouncing is used to prevent unnecessary function calls when triggered multiple times in quick succession.
+
+**[⬆ Back to Top](#table-of-contents)**
 
 ## Async & Defer in Script Tag
 
@@ -217,6 +378,8 @@ HTML parsing continues while the script is fetched in parallel. Once the script 
 ### `<script defer src='.........' />`
 
 HTML parsing continues while the script is fetched in parallel. Once the HTML is fully parsed, the script is executed.
+
+**[⬆ Back to Top](#table-of-contents)**
 
 ## Event Delegation
 
@@ -238,6 +401,8 @@ Example:
 </script>
 ```
 
+**[⬆ Back to Top](#table-of-contents)**
+
 ## Pure Function
 
 Pure functions are those that:
@@ -256,6 +421,8 @@ function add(x, y) {
 
 We are only returning a new output, not changing any external state.
 
+**[⬆ Back to Top](#table-of-contents)**
+
 ## Impure Function
 
 Impure functions may cause side effects, such as changing variables outside the function.
@@ -270,9 +437,13 @@ function increment(x, y) {
 }
 ```
 
+**[⬆ Back to Top](#table-of-contents)**
+
 ## Temporal Dead Zone
 
 The Temporal Dead Zone (TDZ) refers to the period in a block where a variable is inaccessible until it has been initialized with a value. This happens with `let` and `const`, but not with `var`.
+
+**[⬆ Back to Top](#table-of-contents)**
 
 ## Hoisting
 
@@ -327,6 +498,8 @@ var sayHello = function () {
 };
 ```
 
+**[⬆ Back to Top](#table-of-contents)**
+
 ## Unary Function
 
 A unary function is a function that accepts exactly one argument.
@@ -340,6 +513,8 @@ console.log(square(5)); // Output: 25
 ```
 
 Unary functions are often used in functional programming and can simplify operations by focusing on single-argument transformations.
+
+**[⬆ Back to Top](#table-of-contents)**
 
 ## Memoization
 
@@ -375,6 +550,8 @@ console.log(memoizedFunction(6)); // Output: Computing... 36
 ```
 
 Memoization is particularly useful in scenarios where the same computations are repeated multiple times, such as recursive algorithms or data-intensive operations.
+
+**[⬆ Back to Top](#table-of-contents)**
 
 ## Closures
 
