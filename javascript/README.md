@@ -6,26 +6,32 @@
 2. [Difference between synchronous and asynchronous](#difference-between-synchronous-and-asynchronous)
 3. [Interpreter vs Compiler](#interpreter-vs-compiler)
 4. [Methods vs Functions](#methods-vs-functions)
-5. [Prototypes](#prototypes)
-6. [Event Loop](#event-loop)
-7. [Execution Context](#execution-context)
-8. [Polyfills](#polyfills)
-9. [First-Class Function](#first-class-function)
-10. [First-Order Function](#first-order-function)
-11. [Higher-Order Function](#higher-order-function)
-12. [Function Currying](#function-currying)
-13. [Map vs ForEach](#map-vs-foreach)
-14. [Call, Apply & Bind](#call-apply--bind)
-15. [Argument Keyword](#argument-keyword)
-16. [Debouncing](#debouncing)
-17. [Async & Defer in Script Tag](#async--defer-in-script-tag)
-18. [Event Delegation](#event-delegation)
-19. [Pure Function](#pure-function)
-20. [Impure Function](#impure-function)
-21. [Temporal Dead Zone](#temporal-dead-zone)
-22. [Hoisting](#hoisting)
-23. [Unary Function](#unary-function)
-24. [Memoization](#memoization)
+5. [this Keyword](#this-keyword)
+6. [Call, Apply & Bind](#call-apply--bind)
+7. [Prototypes](#prototypes)
+8. [Event Loop](#event-loop)
+9. [Execution Context](#execution-context)
+10. [Polyfills](#polyfills)
+11. [First-Class Function](#first-class-function)
+12. [First-Order Function](#first-order-function)
+13. [Higher-Order Function](#higher-order-function)
+14. [Function Currying](#function-currying)
+15. [Map vs ForEach](#map-vs-foreach)
+16. [Argument Keyword](#argument-keyword)
+17. [Debouncing](#debouncing)
+18. [Async & Defer in Script Tag](#async--defer-in-script-tag)
+19. [Event Delegation](#event-delegation)
+20. [Pure Function](#pure-function)
+21. [Impure Function](#impure-function)
+22. [Temporal Dead Zone](#temporal-dead-zone)
+23. [Hoisting](#hoisting)
+24. [Unary Function](#unary-function)
+25. [Memoization](#memoization)
+26. [Closures](#closures)
+27. [localStorage, sessionStorage, Cookie, IndexedDB, web storage](#localstorage-sessionstorage-cookie-indexeddb-web-storage)
+28. [Callbacks](#callbacks)
+29. [Promises](#promises)
+30. [Async/Await](#asyncawait)
 
 ## What is JavaScript
 
@@ -102,6 +108,51 @@ function sayHello(name) {
   console.log('Hello, ' + name);
 }
 sayHello('John'); // Output: Hello, John
+```
+
+**[⬆ Back to Top](#table-of-contents)**
+
+## this Keyword
+
+## Call, Apply & Bind
+
+These methods help you change the context of the invoking function, allowing you to replace the value of `this` inside a function.
+
+### `call`
+
+The `call` method changes the value of `this` and immediately executes the function with the provided arguments.
+
+Example:
+
+```js
+let userDetails = function (arg1, arg2) {
+  console.log(this.firstName + ' ' + this.lastName + ' from ' + arg1 + ', ' + arg2);
+};
+userDetails.call({ firstName: 'Rohit', lastName: 'Jangid' }, 'Jodhpur', 'Rajasthan');
+```
+
+### `apply`
+
+`apply` is similar to `call`, but arguments are passed as an array.
+
+Example:
+
+```js
+let userDetails = function (arg1, arg2) {
+  console.log(this.firstName + ' ' + this.lastName + ' from ' + arg1 + ', ' + arg2);
+};
+userDetails.apply({ firstName: 'Rohit', lastName: 'Jangid' }, ['Jodhpur', 'Rajasthan']);
+```
+
+### `bind`
+
+`bind` creates a copy of the function with the `this` value set to the specified object, which can be invoked later.
+
+Example:
+
+```js
+let newFunc = userDetails.bind({ firstName: 'Rohit', lastName: 'Jangid' }, 'Jodhpur', 'Rajasthan');
+newFunc();
 ```
 
 **[⬆ Back to Top](#table-of-contents)**
@@ -323,49 +374,6 @@ console.log(curriedSum(1, 2, 3)); // Output: 6
   - Does not support method chaining.
 
 Both `map` and `forEach` do not mutate (change) the original array.
-
-**[⬆ Back to Top](#table-of-contents)**
-
-## Call, Apply & Bind
-
-These methods help you change the context of the invoking function, allowing you to replace the value of `this` inside a function.
-
-### `call`
-
-The `call` method changes the value of `this` and immediately executes the function with the provided arguments.
-
-Example:
-
-```js
-let userDetails = function (arg1, arg2) {
-  console.log(this.firstName + ' ' + this.lastName + ' from ' + arg1 + ', ' + arg2);
-};
-userDetails.call({ firstName: 'Rohit', lastName: 'Jangid' }, 'Jodhpur', 'Rajasthan');
-```
-
-### `apply`
-
-`apply` is similar to `call`, but arguments are passed as an array.
-
-Example:
-
-```js
-let userDetails = function (arg1, arg2) {
-  console.log(this.firstName + ' ' + this.lastName + ' from ' + arg1 + ', ' + arg2);
-};
-userDetails.apply({ firstName: 'Rohit', lastName: 'Jangid' }, ['Jodhpur', 'Rajasthan']);
-```
-
-### `bind`
-
-`bind` creates a copy of the function with the `this` value set to the specified object, which can be invoked later.
-
-Example:
-
-```js
-let newFunc = userDetails.bind({ firstName: 'Rohit', lastName: 'Jangid' }, 'Jodhpur', 'Rajasthan');
-newFunc();
-```
 
 **[⬆ Back to Top](#table-of-contents)**
 
