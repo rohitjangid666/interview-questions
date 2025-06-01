@@ -5,26 +5,27 @@
 1. [What is JavaScript](#what-is-javascript)
 2. [Difference between synchronous and asynchronous](#difference-between-synchronous-and-asynchronous)
 3. [Interpreter vs Compiler](#interpreter-vs-compiler)
-4. [Prototypes](#prototypes)
-5. [Event Loop](#event-loop)
-6. [Execution Context](#execution-context)
-7. [Polyfills](#polyfills)
-8. [First-Class Function](#first-class-function)
-9. [First-Order Function](#first-order-function)
-10. [Higher-Order Function](#higher-order-function)
-11. [Function Currying](#function-currying)
-12. [Map vs ForEach](#map-vs-foreach)
-13. [Call, Apply & Bind](#call-apply--bind)
-14. [Argument Keyword](#argument-keyword)
-15. [Debouncing](#debouncing)
-16. [Async & Defer in Script Tag](#async--defer-in-script-tag)
-17. [Event Delegation](#event-delegation)
-18. [Pure Function](#pure-function)
-19. [Impure Function](#impure-function)
-20. [Temporal Dead Zone](#temporal-dead-zone)
-21. [Hoisting](#hoisting)
-22. [Unary Function](#unary-function)
-23. [Memoization](#memoization)
+4. [Methods vs Functions](#methods-vs-functions)
+5. [Prototypes](#prototypes)
+6. [Event Loop](#event-loop)
+7. [Execution Context](#execution-context)
+8. [Polyfills](#polyfills)
+9. [First-Class Function](#first-class-function)
+10. [First-Order Function](#first-order-function)
+11. [Higher-Order Function](#higher-order-function)
+12. [Function Currying](#function-currying)
+13. [Map vs ForEach](#map-vs-foreach)
+14. [Call, Apply & Bind](#call-apply--bind)
+15. [Argument Keyword](#argument-keyword)
+16. [Debouncing](#debouncing)
+17. [Async & Defer in Script Tag](#async--defer-in-script-tag)
+18. [Event Delegation](#event-delegation)
+19. [Pure Function](#pure-function)
+20. [Impure Function](#impure-function)
+21. [Temporal Dead Zone](#temporal-dead-zone)
+22. [Hoisting](#hoisting)
+23. [Unary Function](#unary-function)
+24. [Memoization](#memoization)
 
 ## What is JavaScript
 
@@ -78,6 +79,30 @@
 
 - **Interpreter**: Translates high-level code into machine code line by line at runtime. It executes the code directly, which can be slower but allows for immediate execution and debugging.
 - **Compiler**: Translates the entire high-level code into machine code before execution. It generates an executable file, which can be run multiple times without recompilation, leading to faster execution.
+
+**[⬆ Back to Top](#table-of-contents)**
+
+## Methods vs Functions
+
+- **Methods**: functions that are stored in object properties are called methods.
+
+```js
+const person = {
+  name: 'John',
+  greet: function () {
+    console.log('Hello, ' + this.name);
+  },
+};
+```
+
+- **Functions**: standalone blocks of code that can be called independently.
+
+```js
+function sayHello(name) {
+  console.log('Hello, ' + name);
+}
+sayHello('John'); // Output: Hello, John
+```
 
 **[⬆ Back to Top](#table-of-contents)**
 
