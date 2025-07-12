@@ -16,7 +16,6 @@
   }
 
   Output:
-  final object
   {
     user_name: 'Rohit',
     user_address_personal_city: 'Jodhpur',
