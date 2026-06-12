@@ -4,9 +4,121 @@
 
 ---
 
+## Table of Contents
+
+- [Chapter 13: Objects](#chapter-13-objects)
+  - [Definition](#definition)
+  - [Why It Matters](#why-it-matters)
+  - [Real World Analogy](#real-world-analogy)
+  - [Creating Objects](#creating-objects)
+    - [Object Literal](#object-literal)
+    - [Object Constructor](#object-constructor)
+    - [Object.create()](#objectcreate)
+  - [Accessing Properties](#accessing-properties)
+    - [Dot Notation](#dot-notation)
+    - [Bracket Notation](#bracket-notation)
+  - [Adding Properties](#adding-properties)
+  - [Updating Properties](#updating-properties)
+  - [Deleting Properties](#deleting-properties)
+  - [Object Methods](#object-methods)
+  - [Object.keys()](#objectkeys)
+  - [Object.values()](#objectvalues)
+  - [Object.entries()](#objectentries)
+  - [Property Descriptors](#property-descriptors)
+  - [writable](#writable)
+  - [enumerable](#enumerable)
+  - [configurable](#configurable)
+  - [Object.freeze()](#objectfreeze)
+  - [Object.seal()](#objectseal)
+  - [freeze vs seal](#freeze-vs-seal)
+  - [Interview Question](#interview-question)
+      - [Difference between freeze and seal?](#difference-between-freeze-and-seal)
+  - [Common Mistakes](#common-mistakes)
+  - [Best Practices](#best-practices)
+  - [Quick Revision Notes](#quick-revision-notes)
+- [Chapter 14: Arrays](#chapter-14-arrays)
+  - [Definition](#definition)
+  - [Why It Matters](#why-it-matters)
+  - [Real World Analogy](#real-world-analogy)
+  - [Creating Arrays](#creating-arrays)
+  - [Accessing Elements](#accessing-elements)
+  - [Length](#length)
+  - [push()](#push)
+  - [pop()](#pop)
+  - [shift()](#shift)
+  - [unshift()](#unshift)
+  - [map()](#map)
+  - [Step-by-Step](#step-by-step)
+  - [filter()](#filter)
+  - [find()](#find)
+  - [some()](#some)
+  - [every()](#every)
+  - [reduce()](#reduce)
+  - [map vs filter vs reduce](#map-vs-filter-vs-reduce)
+  - [Interview Favorite](#interview-favorite)
+  - [Common Mistakes](#common-mistakes)
+  - [Best Practices](#best-practices)
+  - [Quick Revision Notes](#quick-revision-notes)
+- [Chapter 15: Strings](#chapter-15-strings)
+  - [Definition](#definition)
+  - [Why It Matters](#why-it-matters)
+  - [Common Methods](#common-methods)
+    - [length](#length)
+    - [toUpperCase()](#touppercase)
+    - [toLowerCase()](#tolowercase)
+    - [trim()](#trim)
+    - [includes()](#includes)
+    - [startsWith()](#startswith)
+    - [endsWith()](#endswith)
+    - [split()](#split)
+    - [replace()](#replace)
+  - [Interview Question](#interview-question)
+  - [Common Mistakes](#common-mistakes)
+  - [Best Practices](#best-practices)
+  - [Quick Revision Notes](#quick-revision-notes)
+- [Chapter 16: Destructuring](#chapter-16-destructuring)
+  - [Definition](#definition)
+  - [Why It Matters](#why-it-matters)
+  - [Array Destructuring](#array-destructuring)
+  - [Skip Values](#skip-values)
+  - [Default Values](#default-values)
+  - [Object Destructuring](#object-destructuring)
+  - [Renaming Variables](#renaming-variables)
+  - [Nested Destructuring](#nested-destructuring)
+  - [Interview Question](#interview-question)
+  - [Quick Revision Notes](#quick-revision-notes)
+- [Chapter 17: Spread and Rest Operators](#chapter-17-spread-and-rest-operators)
+  - [Spread Operator (...)](#spread-operator)
+  - [Array Copy](#array-copy)
+  - [Merge Arrays](#merge-arrays)
+  - [Object Copy](#object-copy)
+  - [Rest Operator (...)](#rest-operator)
+  - [Difference](#difference)
+  - [Quick Revision Notes](#quick-revision-notes)
+- [Chapter 18: Template Literals](#chapter-18-template-literals)
+  - [Definition](#definition)
+  - [Syntax](#syntax)
+  - [Traditional Way](#traditional-way)
+  - [Template Literal](#template-literal)
+  - [Multi-Line Strings](#multi-line-strings)
+  - [Expressions](#expressions)
+  - [Real World Example](#real-world-example)
+  - [Common Mistakes](#common-mistakes)
+  - [Best Practices](#best-practices)
+  - [Interview Questions](#interview-questions)
+      - [Beginner](#beginner)
+      - [Intermediate](#intermediate)
+      - [Advanced](#advanced)
+  - [Part 4 Complete](#part-4-complete)
+      - [Covered](#covered)
+
+---
+
 # Chapter 13: Objects
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Definition
 
@@ -21,6 +133,8 @@ const user = {
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Why It Matters
 
@@ -41,6 +155,8 @@ All are objects.
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Real World Analogy
 
 Think of a user profile:
@@ -57,7 +173,11 @@ Each property belongs to the user.
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Creating Objects
+
+**[⬆ Back to Top](#table-of-contents)**
 
 ## Object Literal
 
@@ -70,6 +190,8 @@ const user = {
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 ## Object Constructor
 
 ```js
@@ -80,6 +202,8 @@ user.name = "Rohit";
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 ## Object.create()
 
 ```js
@@ -88,7 +212,11 @@ const user = Object.create(null);
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Accessing Properties
+
+**[⬆ Back to Top](#table-of-contents)**
 
 ## Dot Notation
 
@@ -103,6 +231,8 @@ Output:
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 ## Bracket Notation
 
@@ -122,6 +252,8 @@ console.log(user[key]);
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Adding Properties
 
 ```js
@@ -129,6 +261,8 @@ user.city = "Jodhpur";
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Updating Properties
 
@@ -138,6 +272,8 @@ user.age = 26;
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Deleting Properties
 
 ```js
@@ -145,6 +281,8 @@ delete user.age;
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Object Methods
 
@@ -162,6 +300,8 @@ const user = {
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Object.keys()
 
 Returns all keys.
@@ -178,6 +318,8 @@ Output:
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Object.values()
 
 ```js
@@ -191,6 +333,8 @@ Output:
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Object.entries()
 
@@ -208,6 +352,8 @@ Output:
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Property Descriptors
 
@@ -245,6 +391,8 @@ Output:
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # writable
 
 Controls modification.
@@ -269,17 +417,23 @@ Fails.
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # enumerable
 
 Controls visibility in loops.
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # configurable
 
 Controls deletion and reconfiguration.
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Object.freeze()
 
@@ -315,6 +469,8 @@ Delete Properties
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Object.seal()
 
 Allows modification but prevents add/delete.
@@ -337,6 +493,8 @@ user.city = "Delhi";
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # freeze vs seal
 
 | Feature | freeze | seal |
@@ -347,7 +505,11 @@ user.city = "Delhi";
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Interview Question
+
+**[⬆ Back to Top](#table-of-contents)**
 
 ### Difference between freeze and seal?
 
@@ -363,6 +525,8 @@ Cannot add/delete
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Common Mistakes
 
@@ -386,6 +550,8 @@ Need Deep Freeze.
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Best Practices
 
 ✅ Prefer object literals
@@ -395,6 +561,8 @@ Need Deep Freeze.
 ✅ Understand descriptors
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Quick Revision Notes
 
@@ -415,9 +583,13 @@ Modify only
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Chapter 14: Arrays
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Definition
 
@@ -433,6 +605,8 @@ const fruits = [
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Why It Matters
 
 Arrays are everywhere:
@@ -447,6 +621,8 @@ Tables
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Real World Analogy
 
 Shopping cart:
@@ -459,6 +635,8 @@ Cart
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Creating Arrays
 
@@ -475,6 +653,8 @@ new Array(1,2,3);
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Accessing Elements
 
 ```js
@@ -483,6 +663,8 @@ arr[0]
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Length
 
 ```js
@@ -490,6 +672,8 @@ arr.length
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # push()
 
@@ -501,6 +685,8 @@ arr.push(4);
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # pop()
 
 Removes last element.
@@ -510,6 +696,8 @@ arr.pop();
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # shift()
 
@@ -521,6 +709,8 @@ arr.shift();
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # unshift()
 
 Adds at beginning.
@@ -530,6 +720,8 @@ arr.unshift(0);
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # map()
 
@@ -552,6 +744,8 @@ Output:
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Step-by-Step
 
 ```text
@@ -561,6 +755,8 @@ Output:
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # filter()
 
@@ -584,6 +780,8 @@ Output:
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # find()
 
 Returns first match.
@@ -596,6 +794,8 @@ users.find(
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # some()
 
@@ -615,6 +815,8 @@ true
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # every()
 
 Checks all items.
@@ -632,6 +834,8 @@ true
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # reduce()
 
@@ -683,6 +887,8 @@ Visualization
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # map vs filter vs reduce
 
 | Method | Purpose    |
@@ -692,6 +898,8 @@ Visualization
 | reduce | Accumulate |
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Interview Favorite
 
@@ -717,6 +925,8 @@ arr.map(
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Common Mistakes
 
 ❌ Using map without returning.
@@ -735,6 +945,8 @@ undefined
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Best Practices
 
 ✅ Use map for transformation
@@ -744,6 +956,8 @@ undefined
 ✅ Use reduce carefully
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Quick Revision Notes
 
@@ -763,9 +977,13 @@ reduce()
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Chapter 15: Strings
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Definition
 
@@ -777,6 +995,8 @@ const name = "Rohit";
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Why It Matters
 
 Usernames, emails, API data, URLs, search queries.
@@ -785,9 +1005,13 @@ Everything involves strings.
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Common Methods
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 ## length
 
@@ -803,6 +1027,8 @@ Output:
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 ## toUpperCase()
 
 ```js
@@ -817,6 +1043,8 @@ HELLO
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 ## toLowerCase()
 
 ```js
@@ -830,6 +1058,8 @@ hello
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 ## trim()
 
@@ -847,6 +1077,8 @@ hello
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 ## includes()
 
 ```js
@@ -861,6 +1093,8 @@ true
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 ## startsWith()
 
@@ -877,6 +1111,8 @@ true
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 ## endsWith()
 
 ```js
@@ -892,6 +1128,8 @@ true
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 ## split()
 
 ```js
@@ -905,6 +1143,8 @@ Output:
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 ## replace()
 
@@ -922,6 +1162,8 @@ Hi
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Interview Question
 
@@ -945,6 +1187,8 @@ olleh
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Common Mistakes
 
 ❌ Strings are mutable.
@@ -967,6 +1211,8 @@ No effect.
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Best Practices
 
 ✅ Use template literals
@@ -974,6 +1220,8 @@ No effect.
 ✅ Use trim for user input
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Quick Revision Notes
 
@@ -990,15 +1238,21 @@ endsWith
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Chapter 16: Destructuring
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Definition
 
 Destructuring extracts values from arrays or objects.
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Why It Matters
 
@@ -1011,6 +1265,8 @@ Modern JavaScript
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Array Destructuring
 
@@ -1031,6 +1287,8 @@ second = blue
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Skip Values
 
 ```js
@@ -1047,6 +1305,8 @@ c = 3
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Default Values
 
 ```js
@@ -1061,6 +1321,8 @@ Output:
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Object Destructuring
 
 ```js
@@ -1074,6 +1336,8 @@ const {name, age} = user;
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Renaming Variables
 
 ```js
@@ -1083,6 +1347,8 @@ const {
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Nested Destructuring
 
@@ -1100,6 +1366,8 @@ const {
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Interview Question
 
 Swap Variables
@@ -1112,6 +1380,8 @@ let b = 2;
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Quick Revision Notes
 
@@ -1127,15 +1397,21 @@ Object Destructuring
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Chapter 17: Spread and Rest Operators
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Spread Operator (...)
 
 Expands values.
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Array Copy
 
@@ -1149,6 +1425,8 @@ const arr2 =
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Merge Arrays
 
 ```js
@@ -1157,6 +1435,8 @@ const merged =
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Object Copy
 
@@ -1167,6 +1447,8 @@ const user2 = {
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Rest Operator (...)
 
@@ -1189,6 +1471,8 @@ Output:
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Difference
 
@@ -1229,6 +1513,8 @@ Output:
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Quick Revision Notes
 
 ```text
@@ -1241,9 +1527,13 @@ Collect
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Chapter 18: Template Literals
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Definition
 
@@ -1252,6 +1542,8 @@ Template literals allow string interpolation.
 Introduced in ES6.
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Syntax
 
@@ -1263,6 +1555,8 @@ Uses backticks.
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Traditional Way
 
 ```js
@@ -1272,6 +1566,8 @@ const name = "Rohit";
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Template Literal
 
@@ -1289,6 +1585,8 @@ Hello Rohit
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Multi-Line Strings
 
 ```js
@@ -1299,6 +1597,8 @@ World
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Expressions
 
@@ -1317,6 +1617,8 @@ Output:
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Real World Example
 
 ```js
@@ -1329,6 +1631,8 @@ const message =
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Common Mistakes
 
@@ -1354,6 +1658,8 @@ Need:
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Best Practices
 
 ✅ Prefer template literals
@@ -1362,7 +1668,11 @@ Need:
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Interview Questions
+
+**[⬆ Back to Top](#table-of-contents)**
 
 ### Beginner
 
@@ -1373,6 +1683,8 @@ Answer:
 Template literals are more readable and support expressions.
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 ### Intermediate
 
@@ -1386,6 +1698,8 @@ Rest collects values.
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 ### Advanced
 
 Q: What is the difference between Object.freeze() and Object.seal()?
@@ -1398,7 +1712,11 @@ Seal allows modification of existing properties but prevents add/delete.
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Part 4 Complete
+
+**[⬆ Back to Top](#table-of-contents)**
 
 ### Covered
 
@@ -1421,3 +1739,6 @@ Seal allows modification of existing properties but prevents add/delete.
 ✅ Template Literals
 
 ---
+
+
+**[⬆ Back to Top](#table-of-contents)**

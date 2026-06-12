@@ -4,9 +4,119 @@
 
 ---
 
+## Table of Contents
+
+- [Chapter 29: JavaScript Modules](#chapter-29-javascript-modules)
+  - [Definition](#definition)
+  - [Why It Matters](#why-it-matters)
+  - [Real World Analogy](#real-world-analogy)
+  - [Problems Before Modules](#problems-before-modules)
+  - [ES Modules (ESM)](#es-modules-esm)
+  - [Export](#export)
+      - [Named Export](#named-export)
+      - [Import](#import)
+  - [Default Export](#default-export)
+  - [Named vs Default Export](#named-vs-default-export)
+  - [Import Everything](#import-everything)
+  - [CommonJS](#commonjs)
+  - [ESM vs CommonJS](#esm-vs-commonjs)
+  - [Dynamic Import](#dynamic-import)
+  - [Interview Questions](#interview-questions)
+      - [Difference between ESM and CommonJS?](#difference-between-esm-and-commonjs)
+      - [What is Tree Shaking?](#what-is-tree-shaking)
+  - [Quick Revision Notes](#quick-revision-notes)
+- [Chapter 30: Memory Management](#chapter-30-memory-management)
+  - [Definition](#definition)
+  - [Why It Matters](#why-it-matters)
+  - [Memory Lifecycle](#memory-lifecycle)
+  - [Example](#example)
+  - [Types of Memory](#types-of-memory)
+  - [Stack Memory](#stack-memory)
+  - [Characteristics](#characteristics)
+  - [Heap Memory](#heap-memory)
+  - [Visual Diagram](#visual-diagram)
+  - [Why Objects Behave Differently](#why-objects-behave-differently)
+  - [Interview Question](#interview-question)
+  - [Quick Revision Notes](#quick-revision-notes)
+- [Chapter 31: Garbage Collection](#chapter-31-garbage-collection)
+  - [Definition](#definition)
+  - [Why It Matters](#why-it-matters)
+  - [Mark and Sweep](#mark-and-sweep)
+  - [Example](#example)
+  - [Memory Leak Example](#memory-leak-example)
+  - [Common Memory Leaks](#common-memory-leaks)
+    - [Global Variables](#global-variables)
+    - [Detached DOM Elements](#detached-dom-elements)
+    - [Closures](#closures)
+  - [Best Practices](#best-practices)
+  - [Interview Questions](#interview-questions)
+      - [Does JavaScript have manual memory management?](#does-javascript-have-manual-memory-management)
+      - [What algorithm is used?](#what-algorithm-is-used)
+  - [Quick Revision Notes](#quick-revision-notes)
+- [Chapter 32: Debouncing](#chapter-32-debouncing)
+  - [Definition](#definition)
+  - [Why It Matters](#why-it-matters)
+  - [Real World Analogy](#real-world-analogy)
+  - [Problem](#problem)
+  - [Debounced Solution](#debounced-solution)
+  - [Interview Questions](#interview-questions)
+      - [Use case of Debouncing?](#use-case-of-debouncing)
+  - [Quick Revision Notes](#quick-revision-notes)
+- [Chapter 33: Throttling](#chapter-33-throttling)
+  - [Definition](#definition)
+  - [Why It Matters](#why-it-matters)
+  - [Real World Analogy](#real-world-analogy)
+  - [Example](#example)
+  - [Difference](#difference)
+  - [Visual Comparison](#visual-comparison)
+  - [Interview Questions](#interview-questions)
+      - [Difference between Debouncing and Throttling?](#difference-between-debouncing-and-throttling)
+  - [Quick Revision Notes](#quick-revision-notes)
+- [Chapter 34: Currying](#chapter-34-currying)
+  - [Definition](#definition)
+  - [Why It Matters](#why-it-matters)
+  - [Example](#example)
+  - [Practical Example](#practical-example)
+  - [Interview Questions](#interview-questions)
+      - [Why use currying?](#why-use-currying)
+  - [Quick Revision Notes](#quick-revision-notes)
+- [Chapter 35: Memoization](#chapter-35-memoization)
+  - [Definition](#definition)
+  - [Why It Matters](#why-it-matters)
+  - [Example](#example)
+  - [Visualization](#visualization)
+  - [Real World Usage](#real-world-usage)
+  - [Interview Questions](#interview-questions)
+      - [Difference between Memoization and Caching?](#difference-between-memoization-and-caching)
+  - [Quick Revision Notes](#quick-revision-notes)
+- [Chapter 36: Function Composition](#chapter-36-function-composition)
+  - [Definition](#definition)
+  - [Formula](#formula)
+  - [Example](#example)
+  - [Compose Utility](#compose-utility)
+  - [Benefits](#benefits)
+  - [Quick Revision Notes](#quick-revision-notes)
+- [Chapter 37: Recursion](#chapter-37-recursion)
+  - [Definition](#definition)
+  - [Why It Matters](#why-it-matters)
+  - [Basic Example](#basic-example)
+  - [Base Condition](#base-condition)
+  - [Factorial Example](#factorial-example)
+  - [Recursion vs Loop](#recursion-vs-loop)
+  - [Interview Questions](#interview-questions)
+      - [What are the two requirements of recursion?](#what-are-the-two-requirements-of-recursion)
+      - [Why does recursion cause stack overflow?](#why-does-recursion-cause-stack-overflow)
+  - [Quick Revision Notes](#quick-revision-notes)
+  - [Part 7 Complete](#part-7-complete)
+      - [Covered](#covered)
+
+---
+
 # Chapter 29: JavaScript Modules
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Definition
 
@@ -33,11 +143,15 @@ Cleaner and maintainable.
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Why It Matters
 
 Modern React, Next.js, Node.js, and large-scale applications rely heavily on modules.
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Real World Analogy
 
@@ -56,6 +170,8 @@ Modules work the same way.
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Problems Before Modules
 
 Developers relied on:
@@ -73,13 +189,19 @@ Issues:
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # ES Modules (ESM)
 
 Modern JavaScript standard.
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Export
+
+**[⬆ Back to Top](#table-of-contents)**
 
 ### Named Export
 
@@ -93,6 +215,8 @@ export function add(a, b) {
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 ### Import
 
 ```js
@@ -101,6 +225,8 @@ from "./math.js";
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Default Export
 
@@ -121,6 +247,8 @@ from "./greet.js";
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Named vs Default Export
 
 | Feature           | Named | Default |
@@ -130,6 +258,8 @@ from "./greet.js";
 | Curly Braces      | ✅     | ❌       |
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Import Everything
 
@@ -145,6 +275,8 @@ MathUtils.add(1, 2);
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # CommonJS
 
@@ -171,6 +303,8 @@ require("./math");
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # ESM vs CommonJS
 
 | Feature         | ESM           | CommonJS               |
@@ -181,6 +315,8 @@ require("./math");
 | Browser Support | Native        | No                     |
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Dynamic Import
 
@@ -203,7 +339,11 @@ Performance Optimization
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Interview Questions
+
+**[⬆ Back to Top](#table-of-contents)**
 
 ### Difference between ESM and CommonJS?
 
@@ -215,6 +355,8 @@ CommonJS uses `require()` and `module.exports`.
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 ### What is Tree Shaking?
 
 Answer:
@@ -222,6 +364,8 @@ Answer:
 Removing unused code during build time.
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Quick Revision Notes
 
@@ -241,15 +385,21 @@ No {}
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Chapter 30: Memory Management
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Definition
 
 Memory Management refers to how JavaScript allocates, uses, and releases memory.
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Why It Matters
 
@@ -263,6 +413,8 @@ Browser Crashes
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Memory Lifecycle
 
 ```text
@@ -274,6 +426,8 @@ Release Memory
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Example
 
@@ -293,6 +447,8 @@ Memory becomes eligible for cleanup.
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Types of Memory
 
 ```text
@@ -301,6 +457,8 @@ Heap Memory
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Stack Memory
 
@@ -325,6 +483,8 @@ Stored in Stack.
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Characteristics
 
 ```text
@@ -334,6 +494,8 @@ Ordered
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Heap Memory
 
@@ -361,6 +523,8 @@ Stored in Heap.
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Visual Diagram
 
 ```text
@@ -382,6 +546,8 @@ HEAP
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Why Objects Behave Differently
 
@@ -410,6 +576,8 @@ b ──┘
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Interview Question
 
 Why does changing `b.name` affect `a.name`?
@@ -419,6 +587,8 @@ Answer:
 Both variables reference the same heap object.
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Quick Revision Notes
 
@@ -434,9 +604,13 @@ Functions
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Chapter 31: Garbage Collection
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Definition
 
@@ -450,6 +624,8 @@ Mark and Sweep Algorithm
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Why It Matters
 
 Prevents developers from manually freeing memory.
@@ -462,6 +638,8 @@ C++
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Mark and Sweep
 
@@ -491,6 +669,8 @@ Remove unreachable objects.
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Example
 
 ```js
@@ -506,6 +686,8 @@ Original object becomes unreachable.
 Garbage collector removes it.
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Memory Leak Example
 
@@ -523,9 +705,13 @@ Repeated calls increase memory.
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Common Memory Leaks
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 ## Global Variables
 
@@ -542,6 +728,8 @@ const
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 ## Detached DOM Elements
 
 ```js
@@ -556,6 +744,8 @@ Reference still exists.
 Memory remains allocated.
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 ## Closures
 
@@ -574,6 +764,8 @@ Closure keeps data alive.
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Best Practices
 
 ✅ Remove unused references
@@ -584,7 +776,11 @@ Closure keeps data alive.
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Interview Questions
+
+**[⬆ Back to Top](#table-of-contents)**
 
 ### Does JavaScript have manual memory management?
 
@@ -596,6 +792,8 @@ Garbage Collector handles memory automatically.
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 ### What algorithm is used?
 
 Answer:
@@ -603,6 +801,8 @@ Answer:
 Mark and Sweep.
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Quick Revision Notes
 
@@ -620,15 +820,21 @@ DOM References
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Chapter 32: Debouncing
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Definition
 
 Debouncing delays execution until a period of inactivity.
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Why It Matters
 
@@ -644,6 +850,8 @@ Auto Save
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Real World Analogy
 
 Elevator doors.
@@ -655,6 +863,8 @@ Door waits.
 Only closes after inactivity.
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Problem
 
@@ -682,6 +892,8 @@ Rohit
 5 API calls.
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Debounced Solution
 
@@ -727,7 +939,11 @@ One API Call
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Interview Questions
+
+**[⬆ Back to Top](#table-of-contents)**
 
 ### Use case of Debouncing?
 
@@ -736,6 +952,8 @@ Answer:
 Search boxes, form validation, resize events.
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Quick Revision Notes
 
@@ -751,15 +969,21 @@ Auto Save
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Chapter 33: Throttling
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Definition
 
 Throttling limits execution to once per specified interval.
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Why It Matters
 
@@ -775,6 +999,8 @@ Window Resize
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Real World Analogy
 
 Water tap.
@@ -784,6 +1010,8 @@ Maximum flow rate.
 No matter how much pressure applied.
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Example
 
@@ -814,6 +1042,8 @@ function throttle(
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Difference
 
 | Debounce            | Throttle              |
@@ -822,6 +1052,8 @@ function throttle(
 | Executes After Stop | Executes Periodically |
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Visual Comparison
 
@@ -845,7 +1077,11 @@ a---c---e
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Interview Questions
+
+**[⬆ Back to Top](#table-of-contents)**
 
 ### Difference between Debouncing and Throttling?
 
@@ -856,6 +1092,8 @@ Debouncing waits for inactivity.
 Throttling limits execution frequency.
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Quick Revision Notes
 
@@ -869,9 +1107,13 @@ At Fixed Interval
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Chapter 34: Currying
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Definition
 
@@ -889,11 +1131,15 @@ f(a)(b)(c)
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Why It Matters
 
 Creates reusable and configurable functions.
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Example
 
@@ -935,6 +1181,8 @@ Output:
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Practical Example
 
 ```js
@@ -967,7 +1215,11 @@ Output:
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Interview Questions
+
+**[⬆ Back to Top](#table-of-contents)**
 
 ### Why use currying?
 
@@ -976,6 +1228,8 @@ Answer:
 Reusability, partial application, functional programming.
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Quick Revision Notes
 
@@ -991,9 +1245,13 @@ Partial Application
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Chapter 35: Memoization
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Definition
 
@@ -1001,11 +1259,15 @@ Memoization caches expensive computations.
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Why It Matters
 
 Improves performance dramatically.
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Example
 
@@ -1058,6 +1320,8 @@ Second call uses cache.
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Visualization
 
 ```text
@@ -1078,6 +1342,8 @@ Return Cached
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Real World Usage
 
 ```text
@@ -1088,7 +1354,11 @@ Expensive Calculations
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Interview Questions
+
+**[⬆ Back to Top](#table-of-contents)**
 
 ### Difference between Memoization and Caching?
 
@@ -1097,6 +1367,8 @@ Answer:
 Memoization is a specialized form of caching for function results.
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Quick Revision Notes
 
@@ -1112,15 +1384,21 @@ No → Compute
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Chapter 36: Function Composition
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Definition
 
 Function Composition combines multiple functions into one.
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Formula
 
@@ -1129,6 +1407,8 @@ f(g(x))
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Example
 
@@ -1167,6 +1447,8 @@ square
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Compose Utility
 
 ```js
@@ -1201,6 +1483,8 @@ Output:
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Benefits
 
 ```text
@@ -1210,6 +1494,8 @@ Functional Programming
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Quick Revision Notes
 
@@ -1224,15 +1510,21 @@ f(g(x))
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Chapter 37: Recursion
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Definition
 
 Recursion is when a function calls itself.
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Why It Matters
 
@@ -1246,6 +1538,8 @@ File Systems
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Basic Example
 
@@ -1277,6 +1571,8 @@ Output
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Base Condition
 
 Most important part.
@@ -1304,6 +1600,8 @@ Maximum call stack size exceeded
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Factorial Example
 
@@ -1359,6 +1657,8 @@ Result
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Recursion vs Loop
 
 | Feature     | Recursion        | Loop                        |
@@ -1369,7 +1669,11 @@ Result
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Interview Questions
+
+**[⬆ Back to Top](#table-of-contents)**
 
 ### What are the two requirements of recursion?
 
@@ -1380,6 +1684,8 @@ Answer:
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 ### Why does recursion cause stack overflow?
 
 Answer:
@@ -1389,6 +1695,8 @@ Every recursive call creates a new execution context in the Call Stack.
 Too many calls exhaust stack memory.
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Quick Revision Notes
 
@@ -1405,7 +1713,11 @@ Stack Overflow
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Part 7 Complete
+
+**[⬆ Back to Top](#table-of-contents)**
 
 ### Covered
 
@@ -1425,3 +1737,6 @@ Stack Overflow
 ✅ Recursion
 
 ---
+
+
+**[⬆ Back to Top](#table-of-contents)**

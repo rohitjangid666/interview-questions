@@ -4,9 +4,87 @@
 
 ---
 
+## Table of Contents
+
+- [Chapter 4: Type Conversion & Coercion](#chapter-4-type-conversion-coercion)
+  - [Definition](#definition)
+  - [Why It Matters](#why-it-matters)
+  - [Real World Analogy](#real-world-analogy)
+  - [Explicit Conversion](#explicit-conversion)
+    - [String Conversion](#string-conversion)
+    - [Number Conversion](#number-conversion)
+    - [Boolean Conversion](#boolean-conversion)
+  - [Implicit Conversion (Coercion)](#implicit-conversion-coercion)
+  - [Truthy and Falsy Values](#truthy-and-falsy-values)
+    - [Falsy Values](#falsy-values)
+  - [Equality Operators](#equality-operators)
+    - [Loose Equality (==)](#loose-equality)
+    - [Strict Equality (===)](#strict-equality)
+  - [Common Interview Questions](#common-interview-questions)
+  - [Common Mistakes](#common-mistakes)
+  - [Best Practices](#best-practices)
+  - [Quick Revision Notes](#quick-revision-notes)
+- [Chapter 5: Scope](#chapter-5-scope)
+  - [Definition](#definition)
+  - [Why It Matters](#why-it-matters)
+  - [Types of Scope](#types-of-scope)
+  - [Global Scope](#global-scope)
+  - [Function Scope](#function-scope)
+  - [Block Scope](#block-scope)
+  - [var is NOT Block Scoped](#var-is-not-block-scoped)
+  - [Lexical Scope](#lexical-scope)
+  - [Scope Chain](#scope-chain)
+  - [Common Interview Questions](#common-interview-questions)
+  - [Common Mistakes](#common-mistakes)
+  - [Best Practices](#best-practices)
+  - [Quick Revision Notes](#quick-revision-notes)
+- [Chapter 6: Hoisting](#chapter-6-hoisting)
+  - [Definition](#definition)
+  - [Why It Matters](#why-it-matters)
+  - [Visual Representation](#visual-representation)
+  - [Variable Hoisting](#variable-hoisting)
+    - [var](#var)
+    - [let](#let)
+    - [const](#const)
+  - [Temporal Dead Zone (TDZ)](#temporal-dead-zone-tdz)
+  - [Function Hoisting](#function-hoisting)
+    - [Function Declaration](#function-declaration)
+    - [Function Expression](#function-expression)
+  - [Interview Favorite](#interview-favorite)
+  - [Common Mistakes](#common-mistakes)
+  - [Best Practices](#best-practices)
+  - [Quick Revision Notes](#quick-revision-notes)
+- [Chapter 7: Functions](#chapter-7-functions)
+  - [Definition](#definition)
+  - [Why It Matters](#why-it-matters)
+  - [Function Declaration](#function-declaration)
+  - [Function Expression](#function-expression)
+  - [Arrow Functions](#arrow-functions)
+  - [IIFE](#iife)
+  - [Higher Order Functions](#higher-order-functions)
+  - [Callback Functions](#callback-functions)
+  - [Pure Functions](#pure-functions)
+  - [Function Parameters vs Arguments](#function-parameters-vs-arguments)
+  - [Default Parameters](#default-parameters)
+  - [Rest Parameters](#rest-parameters)
+  - [Interview Favorite](#interview-favorite)
+  - [Arrow Functions vs Regular Functions](#arrow-functions-vs-regular-functions)
+  - [Common Mistakes](#common-mistakes)
+  - [Best Practices](#best-practices)
+  - [Interview Questions](#interview-questions)
+      - [Beginner](#beginner)
+      - [Intermediate](#intermediate)
+      - [Advanced](#advanced)
+  - [Quick Revision Notes](#quick-revision-notes)
+  - [Part 2 Complete](#part-2-complete)
+
+---
+
 # Chapter 4: Type Conversion & Coercion
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Definition
 
@@ -18,6 +96,8 @@ JavaScript can do this:
 2. Manually (Explicit Conversion)
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Why It Matters
 
@@ -41,6 +121,8 @@ Because JavaScript converted `1` into a string.
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Real World Analogy
 
 Imagine:
@@ -55,11 +137,15 @@ JavaScript behaves similarly.
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Explicit Conversion
 
 You intentionally convert values.
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 ## String Conversion
 
@@ -90,6 +176,8 @@ Output:
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 ## Number Conversion
 
@@ -135,6 +223,8 @@ NaN = Not a Number
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 ## Boolean Conversion
 
 ```js
@@ -160,6 +250,8 @@ false
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Implicit Conversion (Coercion)
 
@@ -225,6 +317,8 @@ Output:
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Truthy and Falsy Values
 
 Every value in JavaScript is either:
@@ -235,6 +329,8 @@ Falsy
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 ## Falsy Values
 
@@ -281,9 +377,13 @@ true
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Equality Operators
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 ## Loose Equality (==)
 
@@ -301,6 +401,8 @@ true
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 ## Strict Equality (===)
 
 No coercion.
@@ -316,6 +418,8 @@ false
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Common Interview Questions
 
@@ -365,6 +469,8 @@ false
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Common Mistakes
 
 ❌ Using:
@@ -397,6 +503,8 @@ true
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Best Practices
 
 ✅ Prefer `===`
@@ -406,6 +514,8 @@ true
 ✅ Use explicit conversion
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Quick Revision Notes
 
@@ -428,9 +538,13 @@ Everything else → Truthy
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Chapter 5: Scope
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Definition
 
@@ -440,11 +554,15 @@ Think of scope as a variable's visibility area.
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Why It Matters
 
 Most closure and hoisting interview questions depend on scope.
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Types of Scope
 
@@ -454,6 +572,8 @@ Most closure and hoisting interview questions depend on scope.
 4. Lexical Scope
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Global Scope
 
@@ -486,6 +606,8 @@ GLOBAL SCOPE
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Function Scope
 
 Variables declared inside functions.
@@ -505,6 +627,8 @@ ReferenceError
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Block Scope
 
@@ -535,6 +659,8 @@ ReferenceError
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # var is NOT Block Scoped
 
 ```js
@@ -552,6 +678,8 @@ Jodhpur
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Lexical Scope
 
@@ -597,6 +725,8 @@ Inner can access Outer.
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Scope Chain
 
 When JS cannot find a variable:
@@ -630,6 +760,8 @@ function outer() {
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Common Interview Questions
 
 ---
@@ -651,6 +783,8 @@ A function can access variables from its parent scope.
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Common Mistakes
 
 ❌ Thinking var is block scoped.
@@ -658,6 +792,8 @@ A function can access variables from its parent scope.
 ❌ Assuming inner scope variables are accessible outside.
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Best Practices
 
@@ -668,6 +804,8 @@ A function can access variables from its parent scope.
 ✅ Understand scope chain
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Quick Revision Notes
 
@@ -684,9 +822,13 @@ var → Function Scope
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Chapter 6: Hoisting
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Definition
 
@@ -694,11 +836,15 @@ Hoisting is JavaScript's behavior of moving declarations to the top of their sco
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Why It Matters
 
 One of the most frequently asked interview topics.
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Visual Representation
 
@@ -730,9 +876,13 @@ undefined
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Variable Hoisting
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 ## var
 
@@ -750,6 +900,8 @@ undefined
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 ## let
 
 ```js
@@ -766,6 +918,8 @@ ReferenceError
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 ## const
 
 ```js
@@ -781,6 +935,8 @@ ReferenceError
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Temporal Dead Zone (TDZ)
 
@@ -820,9 +976,13 @@ Initialization
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Function Hoisting
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 ## Function Declaration
 
@@ -844,6 +1004,8 @@ Works.
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 ## Function Expression
 
 ```js
@@ -861,6 +1023,8 @@ ReferenceError
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Interview Favorite
 
@@ -900,6 +1064,8 @@ function test() {
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Common Mistakes
 
 ❌ Believing variables move physically.
@@ -912,6 +1078,8 @@ Only declarations are hoisted.
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Best Practices
 
 ✅ Declare before use
@@ -919,6 +1087,8 @@ Only declarations are hoisted.
 ✅ Prefer let and const
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Quick Revision Notes
 
@@ -938,15 +1108,21 @@ Fully hoisted
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Chapter 7: Functions
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Definition
 
 Functions are reusable blocks of code.
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Why It Matters
 
@@ -955,6 +1131,8 @@ Functions are first-class citizens in JavaScript.
 Almost every advanced concept depends on them.
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Function Declaration
 
@@ -980,6 +1158,8 @@ Hello
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Function Expression
 
 ```js
@@ -998,6 +1178,8 @@ Difference
 | Name Optional | No          | Yes        |
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Arrow Functions
 
@@ -1029,6 +1211,8 @@ function add(a,b) {
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # IIFE
 
 Immediately Invoked Function Expression
@@ -1057,6 +1241,8 @@ Avoid polluting global scope.
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Higher Order Functions
 
 Functions that:
@@ -1080,6 +1266,8 @@ greet(function() {
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Callback Functions
 
 Function passed as argument.
@@ -1095,6 +1283,8 @@ greet(() => {
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Pure Functions
 
@@ -1130,6 +1320,8 @@ Depends on external state.
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Function Parameters vs Arguments
 
 ```js
@@ -1160,6 +1352,8 @@ Arguments:
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Default Parameters
 
 ```js
@@ -1182,6 +1376,8 @@ Guest
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Rest Parameters
 
 ```js
@@ -1194,6 +1390,8 @@ function sum(...nums) {
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Interview Favorite
 
@@ -1222,6 +1420,8 @@ Automatic semicolon insertion.
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Arrow Functions vs Regular Functions
 
 | Feature     | Regular          | Arrow     |
@@ -1232,6 +1432,8 @@ Automatic semicolon insertion.
 | Hoisting    | Declaration Only | No        |
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Common Mistakes
 
@@ -1271,6 +1473,8 @@ const add = (a,b) => {
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Best Practices
 
 ✅ Use arrow functions for callbacks
@@ -1283,7 +1487,11 @@ const add = (a,b) => {
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Interview Questions
+
+**[⬆ Back to Top](#table-of-contents)**
 
 ### Beginner
 
@@ -1297,6 +1505,8 @@ Arguments = actual values passed
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 ### Intermediate
 
 Q: What is a Higher Order Function?
@@ -1307,6 +1517,8 @@ Function that accepts or returns another function.
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 ### Advanced
 
 Q: Why don't arrow functions have their own `this`?
@@ -1316,6 +1528,8 @@ Answer:
 Arrow functions use lexical `this`, meaning they inherit `this` from the surrounding scope.
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Quick Revision Notes
 
@@ -1335,6 +1549,8 @@ No constructor
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Part 2 Complete
 
@@ -1356,3 +1572,6 @@ Covered:
 ✅ Pure Functions
 
 ---
+
+
+**[⬆ Back to Top](#table-of-contents)**

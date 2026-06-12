@@ -4,9 +4,91 @@
 
 ---
 
+## Table of Contents
+
+- [Chapter 8: Execution Context](#chapter-8-execution-context)
+  - [Definition](#definition)
+  - [Why It Matters](#why-it-matters)
+  - [Real World Analogy](#real-world-analogy)
+  - [Types of Execution Context](#types-of-execution-context)
+      - [1. Global Execution Context (GEC)](#1-global-execution-context-gec)
+      - [2. Function Execution Context (FEC)](#2-function-execution-context-fec)
+      - [3. Eval Execution Context](#3-eval-execution-context)
+  - [Lifecycle of Execution Context](#lifecycle-of-execution-context)
+  - [Creation Phase](#creation-phase)
+  - [Execution Phase](#execution-phase)
+  - [Visual Diagram](#visual-diagram)
+  - [Example](#example)
+  - [Interview Question](#interview-question)
+      - [What happens when JavaScript runs code?](#what-happens-when-javascript-runs-code)
+  - [Common Mistakes](#common-mistakes)
+  - [Best Practices](#best-practices)
+  - [Quick Revision Notes](#quick-revision-notes)
+- [Chapter 9: Call Stack](#chapter-9-call-stack)
+  - [Definition](#definition)
+  - [Why It Matters](#why-it-matters)
+  - [Real World Analogy](#real-world-analogy)
+  - [Example](#example)
+  - [Stack Visualization](#stack-visualization)
+  - [ASCII Diagram](#ascii-diagram)
+  - [Stack Overflow](#stack-overflow)
+  - [Why?](#why)
+  - [Interview Question](#interview-question)
+      - [What is Stack Overflow?](#what-is-stack-overflow)
+  - [Common Mistakes](#common-mistakes)
+  - [Quick Revision Notes](#quick-revision-notes)
+- [Chapter 10: Closures](#chapter-10-closures)
+  - [Definition](#definition)
+  - [Why It Matters](#why-it-matters)
+  - [Real World Analogy](#real-world-analogy)
+  - [Basic Example](#basic-example)
+  - [How It Works](#how-it-works)
+  - [Visual Diagram](#visual-diagram)
+  - [Lexical Environment](#lexical-environment)
+  - [Practical Use: Private Variables](#practical-use-private-variables)
+  - [Real World Applications](#real-world-applications)
+      - [Data Privacy](#data-privacy)
+      - [Event Handlers](#event-handlers)
+      - [React Hooks](#react-hooks)
+      - [Memoization](#memoization)
+  - [Interview Favorite](#interview-favorite)
+  - [Common Mistakes](#common-mistakes)
+  - [Best Practices](#best-practices)
+  - [Quick Revision Notes](#quick-revision-notes)
+- [Chapter 11: The `this` Keyword](#chapter-11-the-this-keyword)
+  - [Definition](#definition)
+  - [Golden Rule](#golden-rule)
+  - [Global Context](#global-context)
+  - [Object Method](#object-method)
+  - [Regular Function](#regular-function)
+  - [Arrow Functions](#arrow-functions)
+  - [Common Interview Question](#common-interview-question)
+  - [Comparison](#comparison)
+  - [Quick Revision Notes](#quick-revision-notes)
+- [Chapter 12: call(), apply(), bind()](#chapter-12-call-apply-bind)
+  - [Definition](#definition)
+  - [Why It Matters](#why-it-matters)
+  - [call()](#call)
+  - [apply()](#apply)
+  - [bind()](#bind)
+  - [Comparison Table](#comparison-table)
+  - [Visual Diagram](#visual-diagram)
+  - [Real World Example](#real-world-example)
+  - [Interview Question](#interview-question)
+      - [Difference between call, apply and bind?](#difference-between-call-apply-and-bind)
+  - [Common Mistakes](#common-mistakes)
+  - [Best Practices](#best-practices)
+  - [Quick Revision Notes](#quick-revision-notes)
+  - [Part 3 Complete](#part-3-complete)
+      - [Covered](#covered)
+
+---
+
 # Chapter 8: Execution Context
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Definition
 
@@ -23,6 +105,8 @@ this Value
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Why It Matters
 
 Execution Context is the foundation of:
@@ -36,6 +120,8 @@ Execution Context is the foundation of:
 Many advanced interview questions are impossible to answer without understanding it.
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Real World Analogy
 
@@ -59,9 +145,13 @@ Then it executes.
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Types of Execution Context
 
 There are 3 main types:
+
+**[⬆ Back to Top](#table-of-contents)**
 
 ### 1. Global Execution Context (GEC)
 
@@ -74,6 +164,8 @@ console.log("Hello");
 Even this creates a Global Execution Context.
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 ### 2. Function Execution Context (FEC)
 
@@ -91,6 +183,8 @@ Calling `greet()` creates a new execution context.
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 ### 3. Eval Execution Context
 
 Created by:
@@ -103,6 +197,8 @@ Rarely used and generally avoided.
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Lifecycle of Execution Context
 
 Execution Context has two phases:
@@ -114,6 +210,8 @@ Execution Phase
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Creation Phase
 
@@ -139,6 +237,8 @@ greet → function definition
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Execution Phase
 
 Now code executes line by line.
@@ -150,6 +250,8 @@ a = 10
 Value is assigned.
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Visual Diagram
 
@@ -172,6 +274,8 @@ Execution Context
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Example
 
@@ -221,7 +325,11 @@ y → 20
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Interview Question
+
+**[⬆ Back to Top](#table-of-contents)**
 
 ### What happens when JavaScript runs code?
 
@@ -234,6 +342,8 @@ Answer:
 5. Contexts are managed using Call Stack
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Common Mistakes
 
@@ -249,6 +359,8 @@ Hoisting happens during creation phase.
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Best Practices
 
 ✅ Understand memory creation
@@ -258,6 +370,8 @@ Hoisting happens during creation phase.
 ✅ Learn call stack together with execution context
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Quick Revision Notes
 
@@ -278,9 +392,13 @@ Hoisting occurs during creation phase.
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Chapter 9: Call Stack
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Definition
 
@@ -296,6 +414,8 @@ First Out
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Why It Matters
 
 Understanding the Call Stack explains:
@@ -306,6 +426,8 @@ Understanding the Call Stack explains:
 * Event Loop
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Real World Analogy
 
@@ -322,6 +444,8 @@ Last plate placed is removed first.
 Same idea.
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Example
 
@@ -342,6 +466,8 @@ first();
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Stack Visualization
 
@@ -391,6 +517,8 @@ Global
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # ASCII Diagram
 
 ```text
@@ -406,6 +534,8 @@ Global
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Stack Overflow
 
@@ -429,13 +559,19 @@ Maximum call stack size exceeded
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Why?
 
 Function never stops calling itself.
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Interview Question
+
+**[⬆ Back to Top](#table-of-contents)**
 
 ### What is Stack Overflow?
 
@@ -444,6 +580,8 @@ Answer:
 When too many execution contexts accumulate in the call stack and exceed memory limits.
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Common Mistakes
 
@@ -473,6 +611,8 @@ function recurse(n) {
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Quick Revision Notes
 
 ```text
@@ -491,15 +631,21 @@ Maximum call stack size exceeded
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Chapter 10: Closures
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Definition
 
 A Closure is created when a function remembers variables from its outer scope even after the outer function has finished executing.
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Why It Matters
 
@@ -515,6 +661,8 @@ Used heavily in:
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Real World Analogy
 
 Imagine a backpack.
@@ -528,6 +676,8 @@ Closure behaves similarly.
 Function carries variables from its parent scope.
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Basic Example
 
@@ -560,6 +710,8 @@ Output:
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # How It Works
 
 When `outer()` finishes:
@@ -578,6 +730,8 @@ This preserved environment is Closure.
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Visual Diagram
 
 ```text
@@ -593,6 +747,8 @@ Closure Created
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Lexical Environment
 
@@ -623,6 +779,8 @@ name
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Practical Use: Private Variables
 
@@ -679,7 +837,11 @@ undefined
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Real World Applications
+
+**[⬆ Back to Top](#table-of-contents)**
 
 ### Data Privacy
 
@@ -691,6 +853,8 @@ hidden from outside.
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 ### Event Handlers
 
 ```js
@@ -700,6 +864,8 @@ button.addEventListener(...)
 often use closures.
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 ### React Hooks
 
@@ -711,11 +877,15 @@ internally relies on closures.
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 ### Memoization
 
 Closures store cached values.
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Interview Favorite
 
@@ -769,6 +939,8 @@ Output:
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Common Mistakes
 
 ❌ Thinking closure copies values.
@@ -781,6 +953,8 @@ Closures store references.
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Best Practices
 
 ✅ Use closures for private state
@@ -790,6 +964,8 @@ Closures store references.
 ✅ Understand lexical environment
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Quick Revision Notes
 
@@ -809,9 +985,13 @@ Event Handlers
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Chapter 11: The `this` Keyword
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Definition
 
@@ -820,6 +1000,8 @@ Event Handlers
 The value of `this` depends on HOW a function is called.
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Golden Rule
 
@@ -834,6 +1016,8 @@ How was function called?
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Global Context
 
@@ -850,6 +1034,8 @@ window
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Object Method
 
@@ -880,6 +1066,8 @@ this = user
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Regular Function
 
@@ -920,6 +1108,8 @@ undefined
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Arrow Functions
 
@@ -965,6 +1155,8 @@ this = user
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Common Interview Question
 
 ```js
@@ -991,6 +1183,8 @@ Arrow function does not bind `user`.
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Comparison
 
 | Feature      | Regular Function | Arrow Function |
@@ -1001,6 +1195,8 @@ Arrow function does not bind `user`.
 | arguments    | Yes              | No             |
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Quick Revision Notes
 
@@ -1019,15 +1215,21 @@ inherits this
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Chapter 12: call(), apply(), bind()
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Definition
 
 These methods allow explicit control of `this`.
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Why It Matters
 
@@ -1040,6 +1242,8 @@ Used in:
 * Custom implementations
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # call()
 
@@ -1078,6 +1282,8 @@ Rohit Jodhpur
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # apply()
 
 Same as call.
@@ -1108,6 +1314,8 @@ Rohit Jodhpur
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # bind()
 
 Does NOT execute immediately.
@@ -1133,6 +1341,8 @@ Rohit Jodhpur
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Comparison Table
 
 | Feature              | call            | apply | bind            |
@@ -1142,6 +1352,8 @@ Rohit Jodhpur
 | Arguments            | Comma Separated | Array | Comma Separated |
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Visual Diagram
 
@@ -1162,6 +1374,8 @@ Execute Later
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Real World Example
 
@@ -1194,7 +1408,11 @@ this = user
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Interview Question
+
+**[⬆ Back to Top](#table-of-contents)**
 
 ### Difference between call, apply and bind?
 
@@ -1216,6 +1434,8 @@ Execute later
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Common Mistakes
 
 ❌ Forgetting bind returns a function.
@@ -1229,6 +1449,8 @@ Function not executed yet.
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Best Practices
 
 ✅ Use bind for event handlers
@@ -1236,6 +1458,8 @@ Function not executed yet.
 ✅ Use call/apply for function borrowing
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Quick Revision Notes
 
@@ -1254,7 +1478,11 @@ Execute Later
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Part 3 Complete
+
+**[⬆ Back to Top](#table-of-contents)**
 
 ### Covered
 
@@ -1273,3 +1501,6 @@ Execute Later
 ✅ bind()
 
 ---
+
+
+**[⬆ Back to Top](#table-of-contents)**

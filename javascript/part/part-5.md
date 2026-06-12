@@ -4,9 +4,95 @@
 
 ---
 
+## Table of Contents
+
+- [Chapter 19: Prototype and Prototype Chain](#chapter-19-prototype-and-prototype-chain)
+  - [Definition](#definition)
+  - [Why It Matters](#why-it-matters)
+  - [Real World Analogy](#real-world-analogy)
+  - [Example](#example)
+  - [Visual Diagram](#visual-diagram)
+  - [Understanding Prototype](#understanding-prototype)
+  - [Prototype Lookup](#prototype-lookup)
+  - [Creating Prototype Relationships](#creating-prototype-relationships)
+  - [Prototype Chain](#prototype-chain)
+  - [Constructor Functions](#constructor-functions)
+  - [Why Prototype Methods?](#why-prototype-methods)
+  - [Interview Question](#interview-question)
+      - [Difference between **proto** and prototype?](#difference-between-proto-and-prototype)
+  - [Common Mistakes](#common-mistakes)
+  - [Best Practices](#best-practices)
+  - [Quick Revision Notes](#quick-revision-notes)
+- [Chapter 20: Classes and OOP](#chapter-20-classes-and-oop)
+  - [What is OOP?](#what-is-oop)
+  - [Why It Matters](#why-it-matters)
+  - [Four Pillars of OOP](#four-pillars-of-oop)
+  - [Class Syntax](#class-syntax)
+  - [Constructor](#constructor)
+  - [Inheritance](#inheritance)
+  - [super()](#super)
+  - [Encapsulation](#encapsulation)
+  - [Polymorphism](#polymorphism)
+  - [Abstraction](#abstraction)
+  - [Class vs Constructor Function](#class-vs-constructor-function)
+  - [Interview Questions](#interview-questions)
+      - [Are classes a new inheritance model?](#are-classes-a-new-inheritance-model)
+      - [What does `extends` do?](#what-does-extends-do)
+  - [Quick Revision Notes](#quick-revision-notes)
+- [Chapter 21: DOM Manipulation](#chapter-21-dom-manipulation)
+  - [What is DOM?](#what-is-dom)
+  - [Visual Diagram](#visual-diagram)
+  - [Why It Matters](#why-it-matters)
+  - [Selecting Elements](#selecting-elements)
+    - [getElementById()](#getelementbyid)
+    - [querySelector()](#queryselector)
+    - [querySelectorAll()](#queryselectorall)
+  - [Changing Content](#changing-content)
+  - [Changing HTML](#changing-html)
+  - [Difference](#difference)
+  - [Modifying Styles](#modifying-styles)
+  - [Creating Elements](#creating-elements)
+  - [Appending Elements](#appending-elements)
+  - [Removing Elements](#removing-elements)
+  - [Common Mistakes](#common-mistakes)
+  - [Best Practices](#best-practices)
+  - [Quick Revision Notes](#quick-revision-notes)
+- [Chapter 22: Event Handling](#chapter-22-event-handling)
+  - [What is an Event?](#what-is-an-event)
+  - [Event Listener](#event-listener)
+  - [Event Object](#event-object)
+  - [Common Properties](#common-properties)
+  - [Example](#example)
+  - [Removing Event Listeners](#removing-event-listeners)
+  - [Common Mistakes](#common-mistakes)
+  - [Best Practices](#best-practices)
+  - [Quick Revision Notes](#quick-revision-notes)
+- [Chapter 23: Event Bubbling, Capturing & Delegation](#chapter-23-event-bubbling-capturing-delegation)
+  - [Event Bubbling](#event-bubbling)
+  - [Visual Diagram](#visual-diagram)
+  - [Event Capturing](#event-capturing)
+  - [stopPropagation()](#stoppropagation)
+  - [Event Delegation](#event-delegation)
+  - [Why Delegation Works](#why-delegation-works)
+  - [Real World Example](#real-world-example)
+  - [Interview Favorite](#interview-favorite)
+      - [Difference between event.target and event.currentTarget?](#difference-between-eventtarget-and-eventcurrenttarget)
+  - [Common Interview Questions](#common-interview-questions)
+      - [What is Event Bubbling?](#what-is-event-bubbling)
+      - [What is Event Capturing?](#what-is-event-capturing)
+      - [What is Event Delegation?](#what-is-event-delegation)
+      - [Why use Event Delegation?](#why-use-event-delegation)
+  - [Quick Revision Notes](#quick-revision-notes)
+  - [Part 5 Complete](#part-5-complete)
+      - [Covered](#covered)
+
+---
+
 # Chapter 19: Prototype and Prototype Chain
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Definition
 
@@ -17,6 +103,8 @@ Every object in JavaScript has access to another object called its **prototype**
 The prototype contains shared properties and methods.
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Why It Matters
 
@@ -30,6 +118,8 @@ Understanding prototypes explains:
 This is one of the most common intermediate-to-advanced interview topics.
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Real World Analogy
 
@@ -50,6 +140,8 @@ If the manager doesn't know, they ask the director.
 JavaScript works similarly.
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Example
 
@@ -77,6 +169,8 @@ From `Object.prototype`.
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Visual Diagram
 
 ```text
@@ -88,6 +182,8 @@ null
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Understanding Prototype
 
@@ -108,6 +204,8 @@ Object.prototype
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Prototype Lookup
 
@@ -151,6 +249,8 @@ hasOwnProperty()
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Creating Prototype Relationships
 
 ```js
@@ -174,6 +274,8 @@ Hello
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Prototype Chain
 
 ```text
@@ -187,6 +289,8 @@ null
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Constructor Functions
 
@@ -222,6 +326,8 @@ Hello Rohit
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Why Prototype Methods?
 
 Bad:
@@ -249,7 +355,11 @@ Shared among all instances.
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Interview Question
+
+**[⬆ Back to Top](#table-of-contents)**
 
 ### Difference between **proto** and prototype?
 
@@ -282,6 +392,8 @@ Object prototype reference.
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Common Mistakes
 
 ❌ Thinking classes remove prototypes.
@@ -290,6 +402,8 @@ Classes are syntax sugar over prototypes.
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Best Practices
 
 ✅ Use class syntax
@@ -297,6 +411,8 @@ Classes are syntax sugar over prototypes.
 ✅ Understand underlying prototype system
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Quick Revision Notes
 
@@ -317,15 +433,21 @@ Classes use prototypes internally.
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Chapter 20: Classes and OOP
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # What is OOP?
 
 Object-Oriented Programming organizes code around objects.
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Why It Matters
 
@@ -337,6 +459,8 @@ Used heavily in:
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Four Pillars of OOP
 
 ```text
@@ -347,6 +471,8 @@ Abstraction
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Class Syntax
 
@@ -389,6 +515,8 @@ Hello Rohit
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Constructor
 
 Special method executed automatically.
@@ -400,6 +528,8 @@ constructor(name) {
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Inheritance
 
@@ -431,6 +561,8 @@ Animal
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # super()
 
 Calls parent constructor.
@@ -454,6 +586,8 @@ class Dog extends Animal {
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Encapsulation
 
@@ -489,6 +623,8 @@ Error.
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Polymorphism
 
 Same method behaves differently.
@@ -523,6 +659,8 @@ Method overridden.
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Abstraction
 
 Hide implementation details.
@@ -545,6 +683,8 @@ Engine Logic
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Class vs Constructor Function
 
 | Feature        | Class  | Constructor |
@@ -556,7 +696,11 @@ Engine Logic
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Interview Questions
+
+**[⬆ Back to Top](#table-of-contents)**
 
 ### Are classes a new inheritance model?
 
@@ -568,6 +712,8 @@ Classes are syntax sugar over prototypes.
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 ### What does `extends` do?
 
 Answer:
@@ -575,6 +721,8 @@ Answer:
 Creates prototype inheritance between classes.
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Quick Revision Notes
 
@@ -593,9 +741,13 @@ Abstraction
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Chapter 21: DOM Manipulation
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # What is DOM?
 
@@ -604,6 +756,8 @@ DOM = Document Object Model
 Browser converts HTML into a tree-like structure.
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Visual Diagram
 
@@ -627,13 +781,19 @@ H1
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Why It Matters
 
 JavaScript interacts with webpages through the DOM.
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Selecting Elements
+
+**[⬆ Back to Top](#table-of-contents)**
 
 ## getElementById()
 
@@ -646,6 +806,8 @@ document.getElementById(
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 ## querySelector()
 
 ```js
@@ -656,6 +818,8 @@ document.querySelector(
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 ## querySelectorAll()
 
@@ -668,6 +832,8 @@ document.querySelectorAll(
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Changing Content
 
 ```js
@@ -676,6 +842,8 @@ title.textContent =
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Changing HTML
 
@@ -686,6 +854,8 @@ title.innerHTML =
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Difference
 
 | Method      | Purpose      |
@@ -695,6 +865,8 @@ title.innerHTML =
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Modifying Styles
 
 ```js
@@ -703,6 +875,8 @@ title.style.color =
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Creating Elements
 
@@ -715,6 +889,8 @@ document.createElement(
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Appending Elements
 
 ```js
@@ -722,6 +898,8 @@ document.body.append(div);
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Removing Elements
 
@@ -731,6 +909,8 @@ div.remove();
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Common Mistakes
 
 ❌ Using innerHTML for user input.
@@ -739,6 +919,8 @@ Security risk (XSS).
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Best Practices
 
 ✅ Prefer textContent
@@ -746,6 +928,8 @@ Security risk (XSS).
 ✅ Cache DOM selections
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Quick Revision Notes
 
@@ -763,9 +947,13 @@ remove()
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Chapter 22: Event Handling
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # What is an Event?
 
@@ -783,6 +971,8 @@ KeyPress
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Event Listener
 
 ```js
@@ -795,6 +985,8 @@ button.addEventListener(
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Event Object
 
@@ -809,6 +1001,8 @@ button.addEventListener(
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Common Properties
 
 ```js
@@ -818,6 +1012,8 @@ event.currentTarget
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Example
 
@@ -832,6 +1028,8 @@ button.addEventListener(
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Removing Event Listeners
 
 ```js
@@ -842,6 +1040,8 @@ button.removeEventListener(
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Common Mistakes
 
@@ -862,11 +1062,15 @@ Can hurt performance.
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Best Practices
 
 ✅ Use Event Delegation
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Quick Revision Notes
 
@@ -880,9 +1084,13 @@ event.currentTarget
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Chapter 23: Event Bubbling, Capturing & Delegation
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Event Bubbling
 
@@ -929,6 +1137,8 @@ Parent
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Visual Diagram
 
 ```text
@@ -942,6 +1152,8 @@ Document
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Event Capturing
 
@@ -971,6 +1183,8 @@ parent.addEventListener(
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # stopPropagation()
 
 Stops event flow.
@@ -989,6 +1203,8 @@ child.addEventListener(
 Parent won't execute.
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Event Delegation
 
@@ -1036,6 +1252,8 @@ document
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Why Delegation Works
 
 Because of:
@@ -1046,13 +1264,19 @@ Event Bubbling
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Real World Example
 
 React internally uses event delegation extensively.
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Interview Favorite
+
+**[⬆ Back to Top](#table-of-contents)**
 
 ### Difference between event.target and event.currentTarget?
 
@@ -1101,7 +1325,11 @@ parent
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Common Interview Questions
+
+**[⬆ Back to Top](#table-of-contents)**
 
 ### What is Event Bubbling?
 
@@ -1111,6 +1339,8 @@ Event travels from child element to parent elements.
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 ### What is Event Capturing?
 
 Answer:
@@ -1118,6 +1348,8 @@ Answer:
 Event travels from parent to child before bubbling.
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 ### What is Event Delegation?
 
@@ -1127,6 +1359,8 @@ Attaching a single event listener to a parent element and handling child events 
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 ### Why use Event Delegation?
 
 Answer:
@@ -1134,6 +1368,8 @@ Answer:
 Improves performance and works for dynamically added elements.
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Quick Revision Notes
 
@@ -1158,7 +1394,11 @@ Child Handling
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Part 5 Complete
+
+**[⬆ Back to Top](#table-of-contents)**
 
 ### Covered
 
@@ -1180,3 +1420,6 @@ Child Handling
 ✅ Event Delegation
 
 ---
+
+
+**[⬆ Back to Top](#table-of-contents)**

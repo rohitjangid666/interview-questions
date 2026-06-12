@@ -4,9 +4,105 @@
 
 ---
 
+## Table of Contents
+
+- [Chapter 38: JavaScript Design Patterns](#chapter-38-javascript-design-patterns)
+  - [What is a Design Pattern?](#what-is-a-design-pattern)
+  - [Why It Matters](#why-it-matters)
+  - [Types of Design Patterns](#types-of-design-patterns)
+  - [Module Pattern](#module-pattern)
+  - [Definition](#definition)
+  - [Problem](#problem)
+  - [Solution](#solution)
+  - [Why It Works](#why-it-works)
+  - [Singleton Pattern](#singleton-pattern)
+  - [Definition](#definition)
+  - [Real World Example](#real-world-example)
+  - [Use Cases](#use-cases)
+  - [Factory Pattern](#factory-pattern)
+  - [Definition](#definition)
+  - [Observer Pattern](#observer-pattern)
+  - [Definition](#definition)
+  - [Observer Pattern in React](#observer-pattern-in-react)
+  - [Interview Questions](#interview-questions)
+      - [Difference between Factory and Constructor?](#difference-between-factory-and-constructor)
+      - [Which pattern uses closures heavily?](#which-pattern-uses-closures-heavily)
+  - [Quick Revision Notes](#quick-revision-notes)
+- [Chapter 39: ES6+ Features Deep Dive](#chapter-39-es6-features-deep-dive)
+  - [Why ES6 Matters](#why-es6-matters)
+  - [let and const](#let-and-const)
+    - [let](#let)
+    - [const](#const)
+  - [Arrow Functions](#arrow-functions)
+  - [Default Parameters](#default-parameters)
+  - [Destructuring](#destructuring)
+  - [Spread Operator](#spread-operator)
+  - [Rest Operator](#rest-operator)
+  - [Template Literals](#template-literals)
+  - [Optional Chaining](#optional-chaining)
+  - [Nullish Coalescing](#nullish-coalescing)
+  - [Promise APIs](#promise-apis)
+  - [Interview Favorite](#interview-favorite)
+      - [Difference between || and ??](#difference-between-and)
+  - [Quick Revision Notes](#quick-revision-notes)
+- [Chapter 40: Browser Storage](#chapter-40-browser-storage)
+  - [Why Storage Matters](#why-storage-matters)
+  - [Types](#types)
+  - [localStorage](#localstorage)
+  - [Characteristics](#characteristics)
+  - [sessionStorage](#sessionstorage)
+  - [Cookies](#cookies)
+  - [Comparison Table](#comparison-table)
+  - [Interview Questions](#interview-questions)
+      - [Where should JWT be stored?](#where-should-jwt-be-stored)
+      - [Difference between localStorage and sessionStorage?](#difference-between-localstorage-and-sessionstorage)
+  - [Quick Revision Notes](#quick-revision-notes)
+- [Chapter 41: Security Concepts](#chapter-41-security-concepts)
+  - [Why Security Matters](#why-security-matters)
+  - [XSS (Cross Site Scripting)](#xss-cross-site-scripting)
+  - [Definition](#definition)
+  - [Prevention](#prevention)
+  - [CSRF (Cross Site Request Forgery)](#csrf-cross-site-request-forgery)
+  - [Definition](#definition)
+  - [Prevention](#prevention)
+  - [CORS (Cross-Origin Resource Sharing)](#cors-cross-origin-resource-sharing)
+  - [Definition](#definition)
+  - [Common Misconception](#common-misconception)
+  - [Interview Questions](#interview-questions)
+      - [Difference between XSS and CSRF?](#difference-between-xss-and-csrf)
+      - [What causes CORS errors?](#what-causes-cors-errors)
+  - [Quick Revision Notes](#quick-revision-notes)
+- [Chapter 42: Performance Optimization](#chapter-42-performance-optimization)
+  - [Why Performance Matters](#why-performance-matters)
+  - [Lazy Loading](#lazy-loading)
+  - [Definition](#definition)
+  - [Code Splitting](#code-splitting)
+  - [Definition](#definition)
+  - [Dynamic Imports](#dynamic-imports)
+  - [Tree Shaking](#tree-shaking)
+  - [Definition](#definition)
+  - [Debouncing](#debouncing)
+  - [Throttling](#throttling)
+  - [Memoization](#memoization)
+  - [Virtualization](#virtualization)
+  - [Image Optimization](#image-optimization)
+  - [Network Optimization](#network-optimization)
+  - [Interview Questions](#interview-questions)
+      - [What is Tree Shaking?](#what-is-tree-shaking)
+      - [Difference between Lazy Loading and Code Splitting?](#difference-between-lazy-loading-and-code-splitting)
+      - [How can you improve React performance?](#how-can-you-improve-react-performance)
+  - [Performance Optimization Checklist](#performance-optimization-checklist)
+  - [Quick Revision Notes](#quick-revision-notes)
+  - [Part 8 Complete](#part-8-complete)
+      - [Covered](#covered)
+
+---
+
 # Chapter 38: JavaScript Design Patterns
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # What is a Design Pattern?
 
@@ -23,6 +119,8 @@ Reusable Solution
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Why It Matters
 
@@ -46,6 +144,8 @@ Reusable Code
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Types of Design Patterns
 
 ```text
@@ -65,15 +165,21 @@ Observer Pattern
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Module Pattern
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Definition
 
 Encapsulates private data and exposes only public methods.
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Problem
 
@@ -94,6 +200,8 @@ count = 1000;
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Solution
 
@@ -151,6 +259,8 @@ undefined
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Why It Works
 
 Because of:
@@ -161,15 +271,21 @@ Closures
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Singleton Pattern
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Definition
 
 Ensures only one instance exists.
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Real World Example
 
@@ -223,6 +339,8 @@ true
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Use Cases
 
 ```text
@@ -233,9 +351,13 @@ Configuration Manager
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Factory Pattern
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Definition
 
@@ -283,9 +405,13 @@ Simple
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Observer Pattern
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Definition
 
@@ -361,6 +487,8 @@ Breaking News
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Observer Pattern in React
 
 Examples:
@@ -373,7 +501,11 @@ Event Emitters
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Interview Questions
+
+**[⬆ Back to Top](#table-of-contents)**
 
 ### Difference between Factory and Constructor?
 
@@ -385,6 +517,8 @@ Constructor requires `new`.
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 ### Which pattern uses closures heavily?
 
 Answer:
@@ -392,6 +526,8 @@ Answer:
 Module Pattern.
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Quick Revision Notes
 
@@ -411,9 +547,13 @@ Observer
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Chapter 39: ES6+ Features Deep Dive
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Why ES6 Matters
 
@@ -423,9 +563,13 @@ Modern React and Next.js heavily rely on ES6+.
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # let and const
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 ## let
 
@@ -443,6 +587,8 @@ age = 30;
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 ## const
 
 Cannot reassign.
@@ -452,6 +598,8 @@ const PI = 3.14;
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Arrow Functions
 
@@ -485,6 +633,8 @@ Lexical this
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Default Parameters
 
 ```js
@@ -496,6 +646,8 @@ function greet(
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Destructuring
 
@@ -511,6 +663,8 @@ const {
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Spread Operator
 
 ```js
@@ -519,6 +673,8 @@ const arr2 =
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Rest Operator
 
@@ -530,6 +686,8 @@ function test(
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Template Literals
 
 ```js
@@ -537,6 +695,8 @@ function test(
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Optional Chaining
 
@@ -569,6 +729,8 @@ undefined
 No error.
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Nullish Coalescing
 
@@ -614,6 +776,8 @@ Output:
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Promise APIs
 
 ```js
@@ -625,7 +789,11 @@ Promise.allSettled()
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Interview Favorite
+
+**[⬆ Back to Top](#table-of-contents)**
 
 ### Difference between || and ??
 
@@ -635,6 +803,8 @@ Promise.allSettled()
 | ??       | null/undefined |   |       |
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Quick Revision Notes
 
@@ -653,9 +823,13 @@ Template Literals
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Chapter 40: Browser Storage
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Why Storage Matters
 
@@ -671,6 +845,8 @@ Shopping Cart
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Types
 
 ```text
@@ -681,9 +857,13 @@ Cookies
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # localStorage
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Characteristics
 
@@ -740,6 +920,8 @@ localStorage.clear();
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # sessionStorage
 
 ---
@@ -763,6 +945,8 @@ Removed When Tab Closes
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Cookies
 
 ---
@@ -780,6 +964,8 @@ Sent automatically with HTTP requests.
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Comparison Table
 
 | Feature        | localStorage | sessionStorage | Cookies      |
@@ -791,7 +977,11 @@ Sent automatically with HTTP requests.
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Interview Questions
+
+**[⬆ Back to Top](#table-of-contents)**
 
 ### Where should JWT be stored?
 
@@ -809,6 +999,8 @@ are safer than localStorage.
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 ### Difference between localStorage and sessionStorage?
 
 Answer:
@@ -818,6 +1010,8 @@ localStorage persists.
 sessionStorage disappears when tab closes.
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Quick Revision Notes
 
@@ -834,9 +1028,13 @@ Sent To Server
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Chapter 41: Security Concepts
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Why Security Matters
 
@@ -850,9 +1048,13 @@ Data Theft
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # XSS (Cross Site Scripting)
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Definition
 
@@ -887,6 +1089,8 @@ Script executes.
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Prevention
 
 Use:
@@ -907,9 +1111,13 @@ Sanitize Input.
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # CSRF (Cross Site Request Forgery)
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Definition
 
@@ -931,6 +1139,8 @@ using victim's session.
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Prevention
 
 ```text
@@ -941,9 +1151,13 @@ Origin Validation
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # CORS (Cross-Origin Resource Sharing)
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Definition
 
@@ -979,6 +1193,8 @@ header exists.
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Common Misconception
 
 CORS is:
@@ -991,7 +1207,11 @@ Not server security.
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Interview Questions
+
+**[⬆ Back to Top](#table-of-contents)**
 
 ### Difference between XSS and CSRF?
 
@@ -1002,6 +1222,8 @@ Not server security.
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 ### What causes CORS errors?
 
 Answer:
@@ -1009,6 +1231,8 @@ Answer:
 Server missing proper CORS headers.
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Quick Revision Notes
 
@@ -1025,9 +1249,13 @@ CORS
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Chapter 42: Performance Optimization
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Why Performance Matters
 
@@ -1041,9 +1269,13 @@ Responsive Apps
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Lazy Loading
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Definition
 
@@ -1072,9 +1304,13 @@ Faster Loading
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Code Splitting
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Definition
 
@@ -1103,6 +1339,8 @@ Loaded separately.
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Dynamic Imports
 
 ```js
@@ -1114,9 +1352,13 @@ await import(
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Tree Shaking
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Definition
 
@@ -1137,6 +1379,8 @@ Unused functions removed.
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Debouncing
 
 Already covered.
@@ -1150,6 +1394,8 @@ Validation
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Throttling
 
 Useful for:
@@ -1162,11 +1408,15 @@ Resize
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Memoization
 
 Cache expensive computations.
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Virtualization
 
@@ -1189,6 +1439,8 @@ react-virtualized
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Image Optimization
 
 Use:
@@ -1202,6 +1454,8 @@ Responsive Images
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Network Optimization
 
 ```text
@@ -1213,7 +1467,11 @@ HTTP/2
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Interview Questions
+
+**[⬆ Back to Top](#table-of-contents)**
 
 ### What is Tree Shaking?
 
@@ -1222,6 +1480,8 @@ Answer:
 Removing unused code during build.
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 ### Difference between Lazy Loading and Code Splitting?
 
@@ -1232,6 +1492,8 @@ Code Splitting creates chunks.
 Lazy Loading loads chunks when needed.
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 ### How can you improve React performance?
 
@@ -1247,6 +1509,8 @@ Throttling
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Performance Optimization Checklist
 
@@ -1272,6 +1536,8 @@ Throttling
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Quick Revision Notes
 
 ```text
@@ -1290,7 +1556,11 @@ Memoization
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Part 8 Complete
+
+**[⬆ Back to Top](#table-of-contents)**
 
 ### Covered
 
@@ -1316,3 +1586,6 @@ Memoization
 ✅ Tree Shaking
 
 ---
+
+
+**[⬆ Back to Top](#table-of-contents)**

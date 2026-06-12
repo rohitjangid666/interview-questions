@@ -4,15 +4,112 @@
 
 ---
 
+## Table of Contents
+
+- [Chapter 24: Event Loop](#chapter-24-event-loop)
+  - [Definition](#definition)
+  - [Why It Matters](#why-it-matters)
+  - [Real World Analogy](#real-world-analogy)
+  - [Components of the Event Loop](#components-of-the-event-loop)
+  - [Visual Diagram](#visual-diagram)
+  - [Example](#example)
+  - [Step-by-Step Explanation](#step-by-step-explanation)
+      - [Step 1](#step-1)
+      - [Step 2](#step-2)
+      - [Step 3](#step-3)
+      - [Step 4](#step-4)
+  - [Callback Queue](#callback-queue)
+  - [Microtask Queue](#microtask-queue)
+  - [Important Rule](#important-rule)
+  - [Interview Favorite](#interview-favorite)
+  - [Visualization](#visualization)
+  - [Common Mistakes](#common-mistakes)
+  - [Best Practices](#best-practices)
+  - [Quick Revision Notes](#quick-revision-notes)
+- [Chapter 25: Promises](#chapter-25-promises)
+  - [Definition](#definition)
+  - [Why It Matters](#why-it-matters)
+  - [Promise States](#promise-states)
+  - [Visual Diagram](#visual-diagram)
+  - [Creating a Promise](#creating-a-promise)
+  - [Consuming a Promise](#consuming-a-promise)
+  - [Promise Chaining](#promise-chaining)
+  - [Error Handling](#error-handling)
+  - [finally()](#finally)
+  - [Promise Static Methods](#promise-static-methods)
+    - [Promise.all()](#promiseall)
+    - [Promise.allSettled()](#promiseallsettled)
+    - [Promise.race()](#promiserace)
+    - [Promise.any()](#promiseany)
+  - [Comparison Table](#comparison-table)
+  - [Interview Question](#interview-question)
+      - [Difference between Promise.all and Promise.allSettled?](#difference-between-promiseall-and-promiseallsettled)
+  - [Common Mistakes](#common-mistakes)
+  - [Best Practices](#best-practices)
+  - [Quick Revision Notes](#quick-revision-notes)
+- [Chapter 26: Async / Await](#chapter-26-async-await)
+  - [Definition](#definition)
+  - [Why It Matters](#why-it-matters)
+  - [async Function](#async-function)
+  - [await Keyword](#await-keyword)
+  - [Without Async/Await](#without-asyncawait)
+  - [With Async/Await](#with-asyncawait)
+  - [Error Handling](#error-handling)
+  - [Sequential Execution](#sequential-execution)
+  - [Parallel Execution](#parallel-execution)
+  - [Interview Favorite](#interview-favorite)
+  - [Common Mistakes](#common-mistakes)
+  - [Best Practices](#best-practices)
+  - [Quick Revision Notes](#quick-revision-notes)
+- [Chapter 27: Fetch API](#chapter-27-fetch-api)
+  - [Definition](#definition)
+  - [Why It Matters](#why-it-matters)
+  - [GET Request](#get-request)
+  - [Flow](#flow)
+  - [POST Request](#post-request)
+  - [PUT Request](#put-request)
+  - [DELETE Request](#delete-request)
+  - [Handling Errors](#handling-errors)
+  - [Interview Question](#interview-question)
+      - [Does fetch reject on 404?](#does-fetch-reject-on-404)
+  - [Best Practices](#best-practices)
+  - [Quick Revision Notes](#quick-revision-notes)
+- [Chapter 28: Error Handling](#chapter-28-error-handling)
+  - [Definition](#definition)
+  - [Why It Matters](#why-it-matters)
+  - [try/catch](#trycatch)
+  - [Flow](#flow)
+  - [finally](#finally)
+  - [throw Keyword](#throw-keyword)
+  - [Custom Error Class](#custom-error-class)
+  - [Error Types](#error-types)
+    - [SyntaxError](#syntaxerror)
+    - [ReferenceError](#referenceerror)
+    - [TypeError](#typeerror)
+    - [RangeError](#rangeerror)
+  - [Interview Question](#interview-question)
+      - [Difference between throw and catch?](#difference-between-throw-and-catch)
+  - [Common Mistakes](#common-mistakes)
+  - [Best Practices](#best-practices)
+  - [Quick Revision Notes](#quick-revision-notes)
+  - [Part 6 Complete](#part-6-complete)
+      - [Covered](#covered)
+
+---
+
 # Chapter 24: Event Loop
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Definition
 
 The Event Loop is the mechanism that allows JavaScript to perform asynchronous operations even though JavaScript is single-threaded.
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Why It Matters
 
@@ -32,6 +129,8 @@ No:
 would work efficiently.
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Real World Analogy
 
@@ -53,6 +152,8 @@ This notification system is the Event Loop.
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Components of the Event Loop
 
 ```text
@@ -64,6 +165,8 @@ Event Loop
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Visual Diagram
 
@@ -92,6 +195,8 @@ Event Loop
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Example
 
 ```js
@@ -114,7 +219,11 @@ Timer
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Step-by-Step Explanation
+
+**[⬆ Back to Top](#table-of-contents)**
 
 ### Step 1
 
@@ -130,6 +239,8 @@ Start
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 ### Step 2
 
 ```js
@@ -144,6 +255,8 @@ Web APIs
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 ### Step 3
 
 ```js
@@ -157,6 +270,8 @@ End
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 ### Step 4
 
@@ -173,6 +288,8 @@ Timer
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Callback Queue
 
@@ -204,6 +321,8 @@ receives callback.
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Microtask Queue
 
 Higher priority queue.
@@ -234,6 +353,8 @@ Microtask Queue
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Important Rule
 
 ```text
@@ -245,6 +366,8 @@ Callback Queue
 Microtasks always execute first.
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Interview Favorite
 
@@ -274,6 +397,8 @@ Output:
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Visualization
 
 ```text
@@ -300,6 +425,8 @@ Execution:
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Common Mistakes
 
 ❌ Thinking:
@@ -318,6 +445,8 @@ Call Stack Empty
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Best Practices
 
 ✅ Understand queue priorities
@@ -325,6 +454,8 @@ Call Stack Empty
 ✅ Practice output-based questions
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Quick Revision Notes
 
@@ -348,15 +479,21 @@ Callback Queue
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Chapter 25: Promises
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Definition
 
 A Promise represents the eventual completion or failure of an asynchronous operation.
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Why It Matters
 
@@ -372,6 +509,8 @@ Promises make async code manageable.
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Promise States
 
 ```text
@@ -381,6 +520,8 @@ Rejected
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Visual Diagram
 
@@ -393,6 +534,8 @@ Pending
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Creating a Promise
 
@@ -413,6 +556,8 @@ new Promise(
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Consuming a Promise
 
@@ -436,6 +581,8 @@ Success
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Promise Chaining
 
 ```js
@@ -452,6 +599,8 @@ Output:
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Error Handling
 
@@ -470,6 +619,8 @@ Error
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # finally()
 
 Runs regardless of success or failure.
@@ -483,9 +634,13 @@ promise
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Promise Static Methods
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 ## Promise.all()
 
@@ -512,6 +667,8 @@ Output:
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 ## Promise.allSettled()
 
@@ -543,6 +700,8 @@ Output:
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 ## Promise.race()
 
 Returns first completed promise.
@@ -556,6 +715,8 @@ Promise.race([
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 ## Promise.any()
 
 Returns first successful promise.
@@ -563,6 +724,8 @@ Returns first successful promise.
 Ignores failures.
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Comparison Table
 
@@ -575,7 +738,11 @@ Ignores failures.
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Interview Question
+
+**[⬆ Back to Top](#table-of-contents)**
 
 ### Difference between Promise.all and Promise.allSettled?
 
@@ -590,6 +757,8 @@ Waits for all results
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Common Mistakes
 
@@ -609,6 +778,8 @@ Use chaining instead.
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Best Practices
 
 ✅ Return promises
@@ -618,6 +789,8 @@ Use chaining instead.
 ✅ Prefer async/await
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Quick Revision Notes
 
@@ -642,9 +815,13 @@ any()
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Chapter 26: Async / Await
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Definition
 
@@ -653,6 +830,8 @@ Async/Await is syntactic sugar over Promises.
 Makes asynchronous code look synchronous.
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Why It Matters
 
@@ -666,6 +845,8 @@ Cleaner than:
 chains.
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # async Function
 
@@ -682,6 +863,8 @@ Promise.resolve("Hello")
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # await Keyword
 
@@ -712,6 +895,8 @@ Data
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Without Async/Await
 
 ```js
@@ -723,6 +908,8 @@ fetchData()
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # With Async/Await
 
 ```js
@@ -733,6 +920,8 @@ await fetchData();
 Much cleaner.
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Error Handling
 
@@ -755,6 +944,8 @@ async function getData() {
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Sequential Execution
 
 ```js
@@ -768,6 +959,8 @@ await fetchPosts();
 Runs one after another.
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Parallel Execution
 
@@ -784,6 +977,8 @@ await Promise.all([
 Runs simultaneously.
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Interview Favorite
 
@@ -811,6 +1006,8 @@ Promise.resolve(100)
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Common Mistakes
 
 ❌ Forgetting await.
@@ -826,6 +1023,8 @@ Not actual data.
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Best Practices
 
 ✅ Use try/catch
@@ -833,6 +1032,8 @@ Not actual data.
 ✅ Use Promise.all for parallel tasks
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Quick Revision Notes
 
@@ -849,15 +1050,21 @@ Handle Errors
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Chapter 27: Fetch API
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Definition
 
 Fetch API is the modern way to make HTTP requests.
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Why It Matters
 
@@ -871,6 +1078,8 @@ Data Fetching
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # GET Request
 
@@ -892,6 +1101,8 @@ async function getUsers() {
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Flow
 
 ```text
@@ -905,6 +1116,8 @@ JSON
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # POST Request
 
@@ -928,6 +1141,8 @@ await fetch(
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # PUT Request
 
 ```js
@@ -939,6 +1154,8 @@ await fetch("/users/1", {
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # DELETE Request
 
 ```js
@@ -948,6 +1165,8 @@ await fetch("/users/1", {
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Handling Errors
 
@@ -991,7 +1210,11 @@ if (!response.ok) {
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Interview Question
+
+**[⬆ Back to Top](#table-of-contents)**
 
 ### Does fetch reject on 404?
 
@@ -1011,6 +1234,8 @@ check.
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Best Practices
 
 ✅ Check response.ok
@@ -1020,6 +1245,8 @@ check.
 ✅ Handle errors properly
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Quick Revision Notes
 
@@ -1037,9 +1264,13 @@ response.ok
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Chapter 28: Error Handling
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Definition
 
@@ -1047,11 +1278,15 @@ Error handling prevents application crashes and improves user experience.
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Why It Matters
 
 Every production application must handle failures gracefully.
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # try/catch
 
@@ -1069,6 +1304,8 @@ try {
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Flow
 
@@ -1089,6 +1326,8 @@ catch
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # finally
 
@@ -1121,6 +1360,8 @@ Cleanup
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # throw Keyword
 
 Create custom errors.
@@ -1132,6 +1373,8 @@ throw new Error(
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Custom Error Class
 
@@ -1160,9 +1403,13 @@ throw new ValidationError(
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Error Types
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 ## SyntaxError
 
@@ -1172,6 +1419,8 @@ const =
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 ## ReferenceError
 
 ```js
@@ -1179,6 +1428,8 @@ console.log(user);
 ```
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 ## TypeError
 
@@ -1188,6 +1439,8 @@ null.toString();
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 ## RangeError
 
 ```js
@@ -1196,7 +1449,11 @@ new Array(-1);
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Interview Question
+
+**[⬆ Back to Top](#table-of-contents)**
 
 ### Difference between throw and catch?
 
@@ -1206,6 +1463,8 @@ new Array(-1);
 | catch   | Handles error |
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Common Mistakes
 
@@ -1225,6 +1484,8 @@ Always log or rethrow.
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Best Practices
 
 ✅ Use custom errors
@@ -1234,6 +1495,8 @@ Always log or rethrow.
 ✅ Fail gracefully
 
 ---
+
+**[⬆ Back to Top](#table-of-contents)**
 
 # Quick Revision Notes
 
@@ -1254,7 +1517,11 @@ RangeError
 
 ---
 
+**[⬆ Back to Top](#table-of-contents)**
+
 # Part 6 Complete
+
+**[⬆ Back to Top](#table-of-contents)**
 
 ### Covered
 
@@ -1278,3 +1545,6 @@ RangeError
 ✅ Custom Errors
 
 ---
+
+
+**[⬆ Back to Top](#table-of-contents)**
